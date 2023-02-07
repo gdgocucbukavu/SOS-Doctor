@@ -1,7 +1,7 @@
 {
   "name": "client",
   "version": "0.1.0",
-  "homepage": "https://marcellintacite.github.io/sos-doctor",
+  "homepage": "https://gdsc-ucb.github.io/SOS-Doctor/",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
