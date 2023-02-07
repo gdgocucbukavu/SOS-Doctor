@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.js": "/sos-doctor/static/js/main.8112536f.js",
+    "static/js/787.c4e7f8f9.chunk.js": "/sos-doctor/static/js/787.c4e7f8f9.chunk.js",
+    "service-worker.js": "/sos-doctor/service-worker.js",
+    "index.html": "/sos-doctor/index.html",
+    "main.8112536f.js.map": "/sos-doctor/static/js/main.8112536f.js.map",
+    "787.c4e7f8f9.chunk.js.map": "/sos-doctor/static/js/787.c4e7f8f9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.8112536f.js"
+  ]
+}
