@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.js": "/sos-doctor/static/js/main.8112536f.js",
-    "static/js/787.c4e7f8f9.chunk.js": "/sos-doctor/static/js/787.c4e7f8f9.chunk.js",
-    "service-worker.js": "/sos-doctor/service-worker.js",
-    "index.html": "/sos-doctor/index.html",
-    "main.8112536f.js.map": "/sos-doctor/static/js/main.8112536f.js.map",
-    "787.c4e7f8f9.chunk.js.map": "/sos-doctor/static/js/787.c4e7f8f9.chunk.js.map"
+    "main.js": "/SOS-Doctor/static/js/main.c5bd4d96.js",
+    "static/js/787.c4e7f8f9.chunk.js": "/SOS-Doctor/static/js/787.c4e7f8f9.chunk.js",
+    "service-worker.js": "/SOS-Doctor/service-worker.js",
+    "index.html": "/SOS-Doctor/index.html",
+    "main.c5bd4d96.js.map": "/SOS-Doctor/static/js/main.c5bd4d96.js.map",
+    "787.c4e7f8f9.chunk.js.map": "/SOS-Doctor/static/js/787.c4e7f8f9.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.8112536f.js"
+    "static/js/main.c5bd4d96.js"
   ]
 }
