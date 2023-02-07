@@ -39,7 +39,7 @@ export default function Accueil() {
   return (
     <StyledAccueil>
       <div className="ContainerLeft">
-        <h2><span>SOS Doctor</span>, votre <br /> docteur de proche</h2>
+        <h2><span>SOS Doctor</span>, votre <br /> docteur de poche</h2>
         <p>
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
           Quas ab cum omnis officia molestiae, esse repellat expedita 
@@ -142,9 +142,9 @@ const StyledAccueil= styled.nav`
     width: 820px;
     .Search{
       
-
       input{
         width: 100%;
+        font-size:18px;
         background: #F4F4F4;
         border-radius: 10px;
         border: 1px solid #51383c44;  
