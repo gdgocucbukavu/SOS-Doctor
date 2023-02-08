@@ -38,17 +38,18 @@ export default function Navbar() {
 
 const StyledNavbar = styled.nav`
   width: 100%;
-
+  display: flex;
+  align-items: center;
   height: 55px;
   border: 1px solid rgba(159, 159, 159, 0.45);
-  overflowy: hidden;
+  overflow-y: hidden;
 
   .container {
     overflow: hidden;
     display: flex;
     align-items: center;
     width: 100%;
-    height: 55px;
+    height: 60px;
     justify-content: space-between;
   }
 
