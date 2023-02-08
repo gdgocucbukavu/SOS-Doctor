@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import { useNavigate} from "react-router-dom";
 import Illustration from "./Assets/portrait-african-american-practitioner-nurse-smiling-camera-removebg-preview 1.svg";
 import Bg from "./Assets/bg.png";
 import { Buttons } from "./data/button";
@@ -10,7 +11,12 @@ import heart from "./Assets/heart.json";
 import Lottie from "lottie-react";
 export default function Accueil() {
   const [loading, setLoading] = useState(true);
+  const navigate=useNavigate();
 
+  const ActionButton=(path)=>{
+     navigate(path)
+  }
+  
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
@@ -71,7 +77,7 @@ export default function Accueil() {
               </p>
               <div className="ContainerService">
                 {Buttons.map((Button) => (
-                  <button>
+                  <button onClick={()=>ActionButton(Button.path)}>
                     <div className="Logo">
                       <img src={Button.icone} alt="" />
                     </div>
