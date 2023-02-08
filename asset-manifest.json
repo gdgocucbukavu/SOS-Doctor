@@ -1,13 +1,18 @@
 {
   "files": {
-    "main.js": "/SOS-Doctor/static/js/main.c5bd4d96.js",
-    "static/js/787.c4e7f8f9.chunk.js": "/SOS-Doctor/static/js/787.c4e7f8f9.chunk.js",
-    "service-worker.js": "/SOS-Doctor/service-worker.js",
-    "index.html": "/SOS-Doctor/index.html",
-    "main.c5bd4d96.js.map": "/SOS-Doctor/static/js/main.c5bd4d96.js.map",
-    "787.c4e7f8f9.chunk.js.map": "/SOS-Doctor/static/js/787.c4e7f8f9.chunk.js.map"
+    "main.js": "/static/js/main.c0f2c7cc.js",
+    "static/js/787.c4e7f8f9.chunk.js": "/static/js/787.c4e7f8f9.chunk.js",
+    "static/media/portrait-african-american-practitioner-nurse-smiling-camera-removebg-preview 1.svg": "/static/media/portrait-african-american-practitioner-nurse-smiling-camera-removebg-preview 1.bec84fe7d7c79c1248b91fc7b18e1864.svg",
+    "service-worker.js": "/service-worker.js",
+    "static/media/bg.png": "/static/media/bg.29c5a113c8147dbe3dec.png",
+    "static/media/Vector.svg": "/static/media/Vector.b13533945677384b0a93336475615db1.svg",
+    "static/media/Vector (2).svg": "/static/media/Vector (2).72e9f3d5637ec81bd741294c732c238e.svg",
+    "index.html": "/index.html",
+    "static/media/Vector (1).svg": "/static/media/Vector (1).42c77e9464e4ecc14289fec27751c858.svg",
+    "main.c0f2c7cc.js.map": "/static/js/main.c0f2c7cc.js.map",
+    "787.c4e7f8f9.chunk.js.map": "/static/js/787.c4e7f8f9.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.c5bd4d96.js"
+    "static/js/main.c0f2c7cc.js"
   ]
 }
