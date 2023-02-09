@@ -5,7 +5,6 @@ import Button from "../../components/Button";
 import styled from "styled-components";
 import Illustration from "./Assets/415 1.svg";
 import Illustration1 from "./Assets/Illustra.svg";
-import axios from "axios";
 import { apilink } from "../../config/api.js";
 import Http from "../../config/http.js";
 import Input from "./Component/Input.jsx";
@@ -120,7 +119,7 @@ export default function QuickTest() {
 const StyledQuickTest = styled.div`
   display: flex;
   width: 100%;
-  height: 88vh;
+  height: 90vh;
   gap: 10px;
 
   animation: showing 0.3s ease-in;
@@ -146,8 +145,9 @@ const StyledQuickTest = styled.div`
   .ContainerRight {
     display: flex;
     align-items: center;
-
+    height: 100%;
     overflow: hidden;
+    padding-top: 2rem;
     img {
       width: 100%;
       border-radius: 10px;
@@ -161,6 +161,10 @@ const StyledQuickTest = styled.div`
     display: flex;
     flex-direction: column;
     padding: 2rem;
+
+    @media (max-width: 768px) {
+      padding: 1.3rem;
+    }
     .Header {
       h2 {
         font-style: normal;
@@ -217,6 +221,13 @@ const StyledQuickTest = styled.div`
       gap: 20px;
       padding: 20px 0px 40px 0px;
       text-align: center;
+
+      p {
+        font-style: normal;
+        padding: 0;
+
+        margin: 0;
+      }
     }
   }
 `;
