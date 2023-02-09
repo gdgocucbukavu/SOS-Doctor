@@ -6,16 +6,24 @@ import res from "../assets/responsive.png";
 
 export default function Navbar() {
   const [open, setOpen] = React.useState(false);
+  const handleClose = () => {
+    setOpen(false);
+  };
   return (
     <StyledNavbar>
       <div className="container">
         <div className="logo">
-          <img src={logo} alt="logo" />
+          <Link to="/">
+            <img src={logo} alt="logo" />
+          </Link>
         </div>
         <div className="responsive" onClick={() => setOpen(!open)}>
           <img src={res} alt="responsive" />
         </div>
-        <div className={open ? "left_menu active" : "left_menu"}>
+        <div
+          className={open ? "left_menu active" : "left_menu"}
+          onMouseLeave={handleClose}
+        >
           <ul>
             <li>
               <Link to="/">Accueil</Link>
@@ -42,7 +50,7 @@ const StyledNavbar = styled.nav`
   align-items: center;
   height: 55px;
   border: 1px solid rgba(159, 159, 159, 0.45);
-  overflow-y: hidden;
+  z-index: 1000;
 
   .container {
     overflow: hidden;
@@ -56,6 +64,7 @@ const StyledNavbar = styled.nav`
   @media (max-width: 768px) {
     position: relative;
   }
+
   .logo {
     margin-left: 20px;
     img {
@@ -115,6 +124,10 @@ const StyledNavbar = styled.nav`
       to {
         transform: translateX(0%);
       }
+    }
+
+    @media (min-width: 890px) {
+      display: none;
     }
   }
   .left_menu {
