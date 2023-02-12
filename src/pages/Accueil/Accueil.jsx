@@ -55,9 +55,9 @@ export default function Accueil() {
               <span>SOS Doctor</span>, votre <br /> docteur de poche
             </h2>
             <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quas ab
-              cum omnis officia molestiae, esse repellat expedita cupiditate
-              nesciunt?
+              Besoin d'orientation et info sur votre santé et structure
+              sanitaire proche? Pas de soucis, je peux vous aider à contacter
+              les secours et Accédez à des conseils sanitaire en un clic.
             </p>
             <div className="img">
               <img src={Illustration} alt="Illustration" />
@@ -184,7 +184,7 @@ const StyledAccueil = styled.nav`
       display: flex;
       left: 75px;
       border-radius: 50%;
-      margin-top: 120px;
+      margin-top: 140px;
       top: 521px;
       background: #ae376d;
 
@@ -193,7 +193,7 @@ const StyledAccueil = styled.nav`
         width: 778.54px;
         height: 490.19px;
         left: -56px;
-        top: 320px;
+        top: 340px;
       }
       @media (max-width: 768px) {
         display: none;
