@@ -1,11 +1,23 @@
-import { Map, GoogleApiWrapper, Marker } from "google-maps-react";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
+import { GoogleMap, useJsApiLoader, Marker } from "@react-google-maps/api";
 
-const MapContainer = (props) => {
+const containerStyle = {
+  width: "100%",
+  height: "100vh",
+};
+
+function MyComponent() {
+  const { isLoaded } = useJsApiLoader({
+    id: "google-map-script",
+    googleMapsApiKey: "AIzaSyAD0mcKGSHmYBqJ5bwHXi7TYzNqAompmFc",
+  });
   const [location, setLocation] = useState({
     lat: -2.5,
     lng: 28.866667,
   });
+
+  const [map, setMap] = React.useState(null);
+
   const getLocation = () => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(showPosition);
@@ -24,15 +36,37 @@ const MapContainer = (props) => {
   useEffect(() => {
     getLocation();
   });
-  return (
-    <Map google={props.google} zoom={20} initialCenter={location}>
-      <Marker position={location} />
-    </Map>
-  );
-};
 
-export default GoogleApiWrapper({
-  apiKey: "AIzaSyAD0mcKGSHmYBqJ5bwHXi7TYzNqAompmFc",
-  language: "fr",
-  LoadingContainer: MapContainer,
-})(MapContainer);
+  const onLoad = React.useCallback(function callback(map) {
+    // This is just an example of getting and using the map instance!!! don't just blindly copy!
+    const bounds = new window.google.maps.LatLngBounds(location);
+    map.fitBounds(bounds);
+
+    setMap(map);
+  }, []);
+
+  const onUnmount = React.useCallback(function callback(map) {
+    setMap(null);
+  }, []);
+
+  return (
+    <div>
+      {isLoaded && (
+        <GoogleMap
+          mapContainerStyle={containerStyle}
+          center={location}
+          zoom={10}
+          onLoad={onLoad}
+          onUnmount={onUnmount}
+        >
+          {/* Child components, such as markers, info windows, etc. */}
+          <>
+            <Marker position={location} />
+          </>
+        </GoogleMap>
+      )}
+    </div>
+  );
+}
+
+export default React.memo(MyComponent);
