@@ -1,68 +1,57 @@
 import React from "react";
 import styled from "styled-components";
-import {Articles} from "./data/Article"
-import { FaBookOpen,FaMap,FaHome } from "react-icons/fa";
+import { Articles } from "./data/Article";
+import { FaSearch, FaMapMarked } from "react-icons/fa";
+import CardArticle from "./component/CardArticle";
+import Button from "./component/Button";
+import { useNavigate, Outlet } from "react-router";
 export default function HopitalProche() {
+  const navigation = useNavigate();
+  const handleRoute = (link) => {
+    navigation(link);
+  };
   return (
     <StyledHopitalProche>
       <div className="ContainerLeft">
         <div className="Container">
-        <div className="Head">
-          <h2>Articles Recents</h2>
-          <p>Retrouvez les articles sur la santé ici :</p>
+          <div className="Head">
+            <h2>Articles Recents</h2>
+            <p>Retrouvez les articles sur la santé ici :</p>
+          </div>
+          <div className="ArticlesContainer">
+            {Articles.map((Article) => (
+              <CardArticle Article={Article} key={Article.titre} />
+            ))}
+          </div>
         </div>
-        <div className="ArticlesContainer">
-          {
-            Articles.map((Article)=>(
-              <div className="Article">
-                <img src={Article.image} alt="" />
-              <div className="Decription">
-                <h2>{Article.titre}</h2>
-                <div className="ArticleFooter">
-                  <p>{Article.date}</p>
-                  <p><FaBookOpen color={"#DE2478"}/> <span>{Article.HeureLecture}</span> </p>   
-                </div>
-              </div>
-              
-            </div>
-            ))
-          }  
-        </div> 
-        </div>
-        
       </div>
       <div className="ContainerRight">
-          <h2>Hopital Proche</h2>
-          <p>7
-            Lorem ipsum dolor, sit amet consectetur 
-            adipisicing elit. Doloremque veniam, 
-            necessitatibus, assumenda dicta corrupti 
-            omnis ad beatae autem debitis maxime suscipit, 
-            dolore quis illum quidem. Illum dolor harum 
-            enim voluptate.
-          </p>
-          <div className="ServiceContainer">
-              <button>
-                <FaMap className="icone"/>
-                <div className="text">
-                  <h2>Maps</h2>
-                  <p>Idéal Pour un endroit inconnu</p>
-                </div>
-              </button>
-              <button>
-                <FaHome className="icone"/>
-                <div className="text">
-                  <h2>Chercher</h2>
-                  <p>Idéal Pour un endroit inconnu</p>
-                </div>
-              </button>
-          </div>
-      </div>  
-
+        <h2>Hopital Proche</h2>
+        <p>
+          7 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloremque
+          veniam, necessitatibus, assumenda dicta corrupti omnis ad beatae autem
+          debitis maxime suscipit, dolore quis illum quidem. Illum dolor harum
+          enim voluptate.
+        </p>
+        <div className="ServiceContainer">
+          <Button
+            title="Maps"
+            detail="Idéal Pour un endroit inconnu"
+            icon={<FaMapMarked />}
+            color="#39c3f699"
+            action={() => handleRoute("/hopitalProche/map")}
+          />
+          <Button
+            title="Chercher"
+            detail="Idéal Pour un endroit inconnu"
+            icon={<FaSearch />}
+            action={() => handleRoute("/hopitalProche/proche")}
+          />
+        </div>
+      </div>
+      <Outlet />
     </StyledHopitalProche>
-
-  ) 
-
+  );
 }
 const StyledHopitalProche = styled.div`
   display: flex;
@@ -81,170 +70,123 @@ const StyledHopitalProche = styled.div`
   }
   .ContainerLeft {
     display: flex;
-    flex:1;
+    flex: 1;
     flex-direction: column;
-    padding: 2rem;
+    padding: 1rem;
 
     @media (max-width: 768px) {
-      display:none;
+      display: none;
     }
-    .Container
-    {
+    .Container {
       background: rgba(215, 235, 255, 0.21);
       border-radius: 5px;
       overflow: auto;
-      
-      
-    .Head{
-      padding:15px;
-      h2{
-        font-style: normal;
-        font-weight: 600;
-        font-size: 20px;
-        line-height: 30px;
-      }
-      p{
-        font-style: normal;
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 24px;
-        color: #333333;
-      }
-    }
-    .ArticlesContainer
-    {
-      
-      width:100%;
-      padding:15px;
+      padding: 10px;
 
-    .Article{
-      background: #FFFFFF;
-      border-radius: 10px;
-      margin-bottom:12px;
-      padding:8px;
-      cursor:pointer;
-      
-      img{
-        width:100%;
-        border-radius: 10px;
+      ::-webkit-scrollbar {
+        width: 0;
+        display: none;
       }
-      h2{
-        font-style: normal;
-        font-weight: 600;
-        font-size: 20px;
-        line-height: 30px;
+
+      /* Track */
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1;
       }
-      .Decription{
-        h2{
+
+      /* Handle */
+      ::-webkit-scrollbar-thumb {
+        background: #d7ebff;
+        border-radius: 5px;
+        height: 10px;
+      }
+      ::-webkit-scrollbar-button {
+        width: 100px; //for horizontal scrollbar
+        height: 100px; //for vertical scrollbar
+      }
+
+      /* Handle on hover */
+      ::-webkit-scrollbar-thumb:hover {
+        background: #39c3f6;
+      }
+
+      &:hover {
+        ::-webkit-scrollbar {
+          transition: all 0.4s ease-in;
+          width: 8px;
+          height: 20px;
+          display: block;
+        }
+      }
+
+      .Head {
+        padding: 15px;
+        h2 {
           font-style: normal;
           font-weight: 600;
           font-size: 20px;
           line-height: 30px;
+        }
+        p {
+          font-style: normal;
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 24px;
           color: #333333;
         }
-        .ArticleFooter{
-          display:flex;
-          gap:13px;
-          font-style: italic;
-          font-weight: 400;
-          font-size: 12px;
-          line-height: 18px;
-          color: #333333
-          align-items:center;
-          p{
-            display:flex;
-            gap:7px;
-            align-items:center;
-          }
-        }
+      }
+      .ArticlesContainer {
+        width: 100%;
+        padding: 15px;
       }
     }
-    }
-  }
   }
   .ContainerRight {
     display: flex;
-    flex:3;
-    padding-right:55px;
+    flex: 3;
+    padding-right: 55px;
     flex-direction: column;
-    padding-top: 2rem;
+    padding-top: 0.1rem;
 
     @media (max-width: 768px) {
-      padding-right:0px;
-      flex:2;
-      padding: 1.3rem;
-      padding-right:15px;
+      padding-right: 0px;
+      flex: 2;
+      padding: 1rem;
+      padding-right: 15px;
     }
     @media (max-width: 1210px) {
-      flex:2;    
+      flex: 2;
     }
     h2 {
       font-style: normal;
       font-weight: 700;
-      font-size: 40px;
+      font-size: 38px;
       line-height: 60px;
       color: #39c3f6;
       padding: 0;
+
+      @media (max-width: 768px) {
+        font-size: 28px;
+      }
     }
     p {
       font-style: normal;
       font-weight: 400;
       font-size: 16px;
-      text-align:justify;
+      text-align: justify;
       line-height: 24px;
     }
-    .ServiceContainer{
-      display:flex;
-      gap:25px;
-      padding-top:10px;
+    .ServiceContainer {
+      display: flex;
+      gap: 45px;
+      padding-top: 10px;
       width: 100%;
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
+      margin-top: 1.4em;
       @media (max-width: 768px) {
-        justify-content:center;
-      }
-      button{
-        width: 360px;
-        height: 167px;
-        background: rgba(100, 166, 236, 0.1);
-        border: 1px solid #39C3F6;
-        border-radius: 10px;
-        display:flex;
-        padding:15px;
-        align-items:center;
-        gap:40px;
-        @media (max-width: 1210px) {
-          width:100%;
-        }
-
-        .icone{
-          font-size:85px;
-          color:#DE2478;
-        }
-        .text{
-          display:flex;
-          flex-direction:column;
-          cursor:pointer;
-          text-align:left;
-
-          h2{
-            font-weight: 700;
-            font-size: 36px;
-            line-height: 54px;
-          }
-          p{
-            font-style: normal;
-            text-align:left;
-            font-weight: 400;
-            font-size: 16px;
-            line-height: 24px;
-          }
-
-        }
-       
+        justify-content: center;
       }
     }
   }
-
-  `
+`;

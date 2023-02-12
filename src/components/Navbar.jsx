@@ -1,16 +1,21 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
 import logo from "../assets/logo_test.png";
 import res from "../assets/responsive.png";
+import "hamburgers/dist/hamburgers.css";
 
 export default function Navbar() {
   const [open, setOpen] = React.useState(false);
+  const { pathname } = useLocation();
   const handleClose = () => {
     setOpen(false);
   };
+  useEffect(() => {
+    setOpen(false); // Close the navigation panel
+  }, [pathname]);
   return (
-    <StyledNavbar>
+    <StyledNavbar onMouseLeave={handleClose}>
       <div className="container">
         <div className="logo">
           <Link to="/">
@@ -18,7 +23,18 @@ export default function Navbar() {
           </Link>
         </div>
         <div className="responsive" onClick={() => setOpen(!open)}>
-          <img src={res} alt="responsive" />
+          <button
+            className={
+              open
+                ? "hamburger hamburger--collapse is-active"
+                : "hamburger hamburger--collapse"
+            }
+            type="button"
+          >
+            <span className="hamburger-box">
+              <span className="hamburger-inner"></span>
+            </span>
+          </button>
         </div>
         <div
           className={open ? "left_menu active" : "left_menu"}
@@ -48,8 +64,8 @@ const StyledNavbar = styled.nav`
   width: 100%;
   display: flex;
   align-items: center;
-  height: 55px;
-  border: 1px solid rgba(159, 159, 159, 0.45);
+  height: 60px;
+  border: 1px solid rgba(159, 159, 159, 0.2);
   z-index: 1000;
 
   .container {
@@ -74,7 +90,7 @@ const StyledNavbar = styled.nav`
   }
   .responsive {
     display: none;
-    margin-right: 20px;
+    margin-right: 10px;
     cursor: pointer;
 
     @media (max-width: 768px) {
@@ -85,10 +101,11 @@ const StyledNavbar = styled.nav`
 
   .left_menu.active {
     position: absolute;
-    width: 80%;
+    width: 70%;
     top: 0px;
     right: 0px;
-    background-color: #d7ebf2;
+    background-color: #fff;
+    border: 1px solid rgba(159, 159, 159, 0.2);
     height: 100vh;
     display: flex;
     animation: slide 0.5s ease-in-out;
