@@ -7,8 +7,14 @@ import Button from "./component/Button";
 import { useNavigate, Outlet } from "react-router";
 export default function HopitalProche() {
   const navigation = useNavigate();
+  const [handleShow,sethandleShow]=React.useState(true)
   const handleRoute = (link) => {
+    if(link==="/hopitalProche/proche")
+    {
+      sethandleShow(false)
+    }
     navigation(link);
+    
   };
   return (
     <StyledHopitalProche>
@@ -25,6 +31,8 @@ export default function HopitalProche() {
           </div>
         </div>
       </div>
+      {
+        handleShow?
       <div className="ContainerRight">
         <h2>Hopital Proche</h2>
         <p>
@@ -34,6 +42,9 @@ export default function HopitalProche() {
           enim voluptate.
         </p>
         <div className="ServiceContainer">
+          
+
+          
           <Button
             title="Maps"
             detail="Idéal Pour un endroit inconnu"
@@ -47,9 +58,11 @@ export default function HopitalProche() {
             icon={<FaSearch />}
             action={() => handleRoute("/hopitalProche/proche")}
           />
-        </div>
+        </div> 
       </div>
-      <Outlet />
+        :<Outlet/>
+       }
+      
     </StyledHopitalProche>
   );
 }
@@ -142,9 +155,9 @@ const StyledHopitalProche = styled.div`
   }
   .ContainerRight {
     display: flex;
+    flex-direction:column;
     flex: 3;
     padding-right: 55px;
-    flex-direction: column;
     padding-top: 0.1rem;
 
     @media (max-width: 768px) {

@@ -3,6 +3,7 @@ import GlobalStyle from "./theme/globalStyles";
 import Accueil from "./pages/Accueil/Accueil";
 import HopitalProche from "./pages/HopitalProche/HopitalProche";
 import QuickTest from "./pages/Quicktest/QuickTest";
+import Chercher from "./pages/RechercheHopital/Chercher";
 import Navbar from "./components/Navbar";
 import ScrollToTop from "./fonctions/ScrollToTop";
 import Map from "./pages/map/Map";
@@ -16,7 +17,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Accueil />} />
         <Route path="/Quicktest" element={<QuickTest />} />
-        <Route path="/hopitalProche" element={<HopitalProche />}></Route>
+        <Route path="/hopitalProche" element={<HopitalProche />}>
+          <Route path="/hopitalProche//proche" element={<Chercher/>}/>
+        </Route>
         <Route path="hopitalProche/map" element={<Map />} />
         <Route path="*" element={<Accueil />} />
       </Routes>

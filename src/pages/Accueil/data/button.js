@@ -18,7 +18,7 @@ export const Buttons = [
     nom: "Hopital Proche",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate necessitatibus repellendus illo adipisci fugit natus, ",
-    path:"/HopitalProche"
+    path:"/hopitalProche"
   },
   {
     icone: casque,
