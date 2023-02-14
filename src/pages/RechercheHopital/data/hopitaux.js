@@ -7,11 +7,11 @@ export  const Hopitaux=[
         image:HGRB,
         nom:"Hopital de Chiriri",
         details:
-        " 7 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloremque veniam,"
+        " Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloremque veniam,"
     },
     {
         image:HGRB,
-        nom:"Clinique de saint luc",
+        nom:"Clinique saint luc",
         details:
         " 7 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloremque veniam, "
     },
