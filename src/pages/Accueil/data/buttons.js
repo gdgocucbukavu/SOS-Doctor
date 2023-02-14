@@ -10,13 +10,14 @@ export const Buttons = [
     icone: Vector1,
     nom: "Quick Test",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate necessitatibus repellendus illo adipisci fugit natus, ",
-    path:"/Quicktest"
+      "Le test vous aide  avec les orienations vers un hôpital ou une clinique ayant un médecin spécialisé pour traiter votre cas.",
+    path: "/Quicktest",
   },
   {
     icone: Vector2,
     nom: "Hopital Proche",
     description:
+
       "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate necessitatibus repellendus illo adipisci fugit natus, ",
     path:"/hopitalProche"
   },
@@ -24,28 +25,28 @@ export const Buttons = [
     icone: casque,
     nom: "Secours",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate necessitatibus repellendus illo adipisci fugit natus, ",
-    path:"/Secours"
+      "Etes-vous jeune ? Retrouvez ici les articles sur le secourisme et les soins de premières nécessités.",
+    path: "/Secours",
   },
   {
     icone: maternite,
     nom: "Matérnité",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate necessitatibus repellendus illo adipisci fugit natus, ",
-    path:"/Maternite"
+      "Etes-vous mère ou en devenir? Retrouvez les articles à lire sur la contraception, la grossesse et la maternité",
+    path: "/Maternite",
   },
   {
     icone: sexe,
     nom: "Sexualité",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate necessitatibus repellendus illo adipisci fugit natus, ",
-    path:"/Sexualite"
+      "Retrouvez différents articles sur la sexualité, la reproduction et l’éducation sexuelle par les experts.",
+    path: "/Sexualite",
   },
   {
     icone: divers,
     nom: "Divers",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate necessitatibus repellendus illo adipisci fugit natus, ",
-    path:"/Divers"
+      " Besoin de faire un régime alimentaire, une activité physique etc ?, retrouvez des articles et conseils sanitaires.",
+    path: "/Divers",
   },
 ];

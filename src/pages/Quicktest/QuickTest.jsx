@@ -42,9 +42,9 @@ export default function QuickTest() {
           <h2>Quick test</h2>
 
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet
-            temporibus autem tenetur ex nostrum quo optio atque numquam cum
-            quaerat aliquid deleniti.
+            Vous vous sentez mal ou vous soupçonnez quelque chose ! Dites-moi
+            tout. Je peux vous aider. J'ai besoin de tous les détails possibles
+            pour pouvoir vous aider avec précision.
           </p>
           <div className="ImageIllustration">
             <img src={Illustration1} alt="" />
@@ -104,8 +104,9 @@ export default function QuickTest() {
               color={"white"}
             />
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis
-              porro possimus reprehenderit fuga. Porro similique velit.
+              Avant de soumettre ces informations, veuillez vous rassurer
+              qu'elles sont correctes et complètes, pour que je puisse mieux
+              vous aider.
             </p>
           </div>
         </form>
