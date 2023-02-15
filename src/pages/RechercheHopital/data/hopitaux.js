@@ -5,25 +5,25 @@ export  const Hopitaux=[
 
     {
         image:HGRB,
-        nom:"Hopital de Chiriri",
+        nom:"HOPITAL DE CIRIRI",
         details:
         " Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloremque veniam,"
     },
     {
         image:HGRB,
-        nom:"Clinique saint luc",
+        nom:"CLINIQUE SAINT LUC",
         details:
         " 7 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloremque veniam, "
     },
     {
         image:PANZI,
-        nom:"Hopital de Panzi",
+        nom:"HOPITAL DE PANZI",
         details:
         " 7 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloremque veniam, "
     },
     {
         image:HGRB,
-        nom:"Bukavu",
+        nom:"BUKAVU",
         details:
         " 7 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloremque veniam, "
     },

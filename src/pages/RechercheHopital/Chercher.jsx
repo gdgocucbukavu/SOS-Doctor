@@ -9,11 +9,19 @@ const Chercher = () => {
   const[query,setQuery]=React.useState("")
 
   const SearchListe=(e)=>{
-    setQuery(e.target.value)
-    setFiltre(data.filter((hopital)=>{
+    setQuery(e.target.value.toUpperCase())
+    if(query!=="")
+    {
+    setFiltre(Hopitaux.filter((hopital)=>{
         return hopital.nom.includes(query)     
     })) 
     setData(FiltreLste)
+    console.log("data")
+   }
+   else{
+    setData(Hopitaux)
+    console.log("vide")
+   }
 }
     return (
         <ChercherStyled>
