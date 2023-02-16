@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "homepage": "https://gdsc-ucb.github.io",
   "private": true,
-  "proxy": "https://maps.googleapis.com/maps/api/place",
   "dependencies": {
     "@react-google-maps/api": "^2.18.1",
     "@testing-library/jest-dom": "^5.16.5",
