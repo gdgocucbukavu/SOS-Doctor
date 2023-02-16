@@ -76,8 +76,8 @@ export default function Accueil() {
                 pour cette tache.
               </p>
               <div className="ContainerService">
-                {Buttons.map((Button) => (
-                  <button onClick={() => ActionButton(Button.path)}>
+                {Buttons.map((Button,index) => (
+                  <button onClick={() => ActionButton(Button.path)} key={index}>
                     <div className="Logo">
                       <img src={Button.icone} alt="" />
                     </div>
