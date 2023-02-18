@@ -13,7 +13,7 @@ export default function Navbar() {
   };
   useEffect(() => {
     setOpen(false); // Close the navigation panel
-  }, [pathname]);
+  }, [pathname])
   return (
     <StyledNavbar onMouseLeave={handleClose}>
       <div className="container">
