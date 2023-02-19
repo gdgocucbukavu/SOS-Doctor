@@ -41,14 +41,14 @@ export default function ChatContainer() {
           backgroundColor: "#39c3f6",
           color: "#FFFFFF",
           borderRadius: "50%",
-          height: 50,
-          width: 50,
+          height: 55,
+          width: 55,
           cursor: "pointer",
         }}
       >
         <BiMessageSquareDots
           style={{
-            fontSize: 23,
+            fontSize: 28,
           }}
         />
       </div>

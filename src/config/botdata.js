@@ -1,3 +1,10 @@
+import sexe from "./sexe";
+
+function getRandomInt(max) {
+  console.log(max);
+  return Math.floor(Math.random() * max);
+}
+
 const CustomComponentWithBubble = ({ answers }) => {
   const { values } = answers;
   const { nom } = values;
@@ -6,6 +13,15 @@ const CustomComponentWithBubble = ({ answers }) => {
     <div>
       Merci pour votre question {nom} 😇, nous vous contacterons dans les plus
       brefs délais 📱
+    </div>
+  );
+};
+
+const CustomComponentWithBubblelink = ({ answers }) => {
+  return (
+    <div>
+      <p>Utilisez ce lien pour nous contacter : </p>
+      <a href="https://wa.link/hkd9ta">Ici</a>
     </div>
   );
 };
@@ -20,22 +36,99 @@ export const steps = [
     content: "Veuillez choisir une option qui vous convient 👇:",
     options: [
       {
+        content: "Astuces",
+        value: 2,
+        goTo: "astuces",
+      },
+      {
         content: "J'ai une question",
         value: 1,
         goTo: "question",
       },
       {
-        content: "Je vais contacter un medecin",
+        content: "Contactez-nous",
+        value: 3,
+        goTo: "contact",
+      },
+    ],
+  },
+
+  /**
+   * Espace pour contact
+   */
+  {
+    id: "contact",
+    component: {
+      content: CustomComponentWithBubblelink,
+    },
+    end: true,
+  },
+
+  /**
+   * Cette conserne astuces
+   */
+  {
+    id: "astuces",
+    content: "Intéressant 😇, veuillez choisir un domaine 👇: ",
+    options: [
+      {
+        content: "Sexualité",
+        value: 1,
+        goTo: "sexe",
+      },
+      {
+        content: "Maternité",
         value: 2,
         goTo: 3,
       },
       {
-        content: "Bear 🐻",
+        content: "Autres",
         value: 3,
         goTo: "error",
       },
     ],
+    goTo: 2,
   },
+
+  /**
+   * Cette partie conserne le sexe
+   *
+   */
+
+  {
+    id: "sexe",
+    content: sexe[getRandomInt(sexe.length)],
+    goTo: "astuce",
+  },
+
+  {
+    id: "astuce",
+    content: "Une autre astuce ?, veuillez choisir un domaine 👇: ",
+    options: [
+      {
+        content: "Sexualité",
+        value: 1,
+        goTo: "sexe",
+      },
+      {
+        content: "Maternité",
+        value: 2,
+        goTo: 3,
+      },
+      {
+        content: "Autres",
+        value: 3,
+        goTo: "error",
+      },
+      {
+        content: "Menu",
+        value: 3,
+        goTo: 2,
+      },
+    ],
+    goTo: 2,
+  },
+
   {
     id: "question",
     content: "Intéressant 😇, veuillez choisir un domaine 👇: ",
@@ -48,12 +141,12 @@ export const steps = [
       {
         content: "Maternité",
         value: 2,
-        goTo: 3,
+        goTo: "nom",
       },
       {
         content: "Autres",
         value: 3,
-        goTo: "error",
+        goTo: "nom",
       },
     ],
     goTo: 2,
@@ -82,7 +175,7 @@ export const steps = [
       content: CustomComponentWithBubble,
     },
 
-    goTo: "bye",
+    goTo: 2,
   },
   {
     id: "bye",
