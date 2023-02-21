@@ -13,7 +13,7 @@ export default function Navbar() {
   };
   useEffect(() => {
     setOpen(false); // Close the navigation panel
-  }, [pathname])
+  }, [pathname]);
   return (
     <StyledNavbar onMouseLeave={handleClose}>
       <div className="container">
@@ -52,7 +52,7 @@ export default function Navbar() {
             </li>
           </ul>
           <div className="second">
-            <Link to="/">Connexion</Link>
+            <Link to="/">Connexion</Link> 
           </div>
         </div>
       </div>
