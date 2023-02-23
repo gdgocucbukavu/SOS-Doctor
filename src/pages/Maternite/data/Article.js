@@ -13,7 +13,7 @@ export const Articles = [
   },
   {
     image: mama,
-    titre: "Comment utiliser SOS Doctor avec efficacité 2",
+    titre: "Bien assuré la santé de son enfant (0 à 2 ans",
     date: "12 février 2023",
     HeureLecture: "2 min de lecture",
   },
