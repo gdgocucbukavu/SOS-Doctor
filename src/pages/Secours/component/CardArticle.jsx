@@ -2,7 +2,7 @@ import React from "react";
 import { FaBookOpen } from "react-icons/fa";
 import styled from "styled-components";
 
-export default function CardArticle({ Article,handleClick }) {
+export default function CardArticle({ Article, handleClick }) {
   return (
     <CardContainer im={Article.image} onClick={handleClick}>
       <div className="img"></div>
@@ -24,10 +24,14 @@ const CardContainer = styled.div`
   border-radius: 10px;
   margin-bottom: 12px;
   padding: 8px;
-  width: 357px;
+  width: 300px;
   cursor: pointer;
   height: 245px;
 
+  @media screen and (max-width: 578px) {
+    width: 90%;
+    margin: auto;
+  }
   .img {
     background: url(${(props) => props.im});
     width: 100%;

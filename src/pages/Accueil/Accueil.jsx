@@ -7,89 +7,60 @@ import { Buttons } from "./data/buttons.js";
 import searchIcon from "./Assets/searh.png";
 import circle from "./Assets/Ellipse.png";
 import rainbow from "./Assets/Rainbow.png";
-import heart from "./Assets/heart.json";
-import Lottie from "lottie-react";
+
 export default function Accueil() {
-  const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
   const ActionButton = (path) => {
     navigate(path);
   };
 
-  useEffect(() => {
-    setTimeout(() => {
-      setLoading(false);
-    }, 2000);
-  });
   return (
     <>
-      {loading && (
-        <div
-          style={{
-            width: "100%",
-            height: "80vh",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <Lottie
-            animationData={heart}
-            loop={true}
-            style={{
-              width: "200px",
-            }}
-          />
+      <StyledAccueil bg={Bg}>
+        <div className="imgs">
+          <img src={circle} alt="" />
+          <img src={rainbow} alt="" />
         </div>
-      )}
-
-      {!loading && (
-        <StyledAccueil bg={Bg}>
-          <div className="imgs">
-            <img src={circle} alt="" />
-            <img src={rainbow} alt="" />
+        <div className="ContainerLeft">
+          <h2>
+            <span>SOS Doctor</span>, votre <br /> docteur de poche
+          </h2>
+          <p>
+            Besoin d'orientation et info sur votre santé et structure sanitaire
+            proche? Pas de soucis, je peux vous aider à contacter les secours et
+            Accédez à des conseils sanitaire en un clic.
+          </p>
+          <div className="img">
+            <img src={Illustration} alt="Illustration" />
           </div>
-          <div className="ContainerLeft">
-            <h2>
-              <span>SOS Doctor</span>, votre <br /> docteur de poche
-            </h2>
+        </div>
+        <div className="ContainerRight">
+          <div className="Search">
+            <input type="text" placeholder="Chercher un article..." />
+            <img src={searchIcon} alt="search" />
+          </div>
+          <div className="Services">
+            <h2>Services</h2>
             <p>
-              Besoin d'orientation et info sur votre santé et structure
-              sanitaire proche? Pas de soucis, je peux vous aider à contacter
-              les secours et Accédez à des conseils sanitaire en un clic.
+              Besoin d'appeler les urgences ? contacter un hopital ? apprendre
+              plus sur l'édictaion sanitaire ? Je suis le Meilleur docteur pour
+              cette tache.
             </p>
-            <div className="img">
-              <img src={Illustration} alt="Illustration" />
+            <div className="ContainerService">
+              {Buttons.map((Button, index) => (
+                <button onClick={() => ActionButton(Button.path)} key={index}>
+                  <div className="Logo">
+                    <img src={Button.icone} alt="" />
+                  </div>
+                  <h3>{Button.nom}</h3>
+                  <p>{Button.description}</p>
+                </button>
+              ))}
             </div>
           </div>
-          <div className="ContainerRight">
-            <div className="Search">
-              <input type="text" placeholder="Chercher un article..." />
-              <img src={searchIcon} alt="search" />
-            </div>
-            <div className="Services">
-              <h2>Services</h2>
-              <p>
-                Besoin d'appeler les urgences ? contacter un hopital ? apprendre
-                plus sur l'édictaion sanitaire ? Je suis le Meilleur docteur
-                pour cette tache.
-              </p>
-              <div className="ContainerService">
-                {Buttons.map((Button,index) => (
-                  <button onClick={() => ActionButton(Button.path)} key={index}>
-                    <div className="Logo">
-                      <img src={Button.icone} alt="" />
-                    </div>
-                    <h3>{Button.nom}</h3>
-                    <p>{Button.description}</p>
-                  </button>
-                ))}
-              </div>
-            </div>
-          </div>
-        </StyledAccueil>
-      )}
+        </div>
+      </StyledAccueil>
     </>
   );
 }

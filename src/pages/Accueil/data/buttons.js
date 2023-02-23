@@ -17,9 +17,8 @@ export const Buttons = [
     icone: Vector2,
     nom: "Hopital Proche",
     description:
-
       "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate necessitatibus repellendus illo adipisci fugit natus, ",
-    path:"/hopitalProche"
+    path: "/hopitalProche",
   },
   {
     icone: casque,
@@ -44,7 +43,7 @@ export const Buttons = [
   },
   {
     icone: divers,
-    nom: "Divers",
+    nom: "divers",
     description:
       " Besoin de faire un régime alimentaire, une activité physique etc ?, retrouvez des articles et conseils sanitaires.",
     path: "/Divers",

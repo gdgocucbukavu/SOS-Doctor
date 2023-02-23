@@ -52,7 +52,7 @@ export default function Navbar() {
             </li>
           </ul>
           <div className="second">
-            <Link to="/">Connexion</Link> 
+            <Link to="/">Connexion</Link>
           </div>
         </div>
       </div>
@@ -75,6 +75,8 @@ const StyledNavbar = styled.nav`
     width: 100%;
     height: 60px;
     justify-content: space-between;
+    position: fixed;
+    background-color: #fff8;
   }
 
   @media (max-width: 768px) {

@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Articles } from "./data/Article";
 import CardArticle from "./component/CardArticle";
 import Article from "../../components/Article";
-export default function Sexualite() {
+export default function Divers() {
   const [OpenArtcticle, SetOpen] = React.useState(false);
   const [ArticleDetail, setArtcileDetaille] = React.useState([]);
   const OuvrirArtcle = (cle) => {
@@ -21,7 +21,7 @@ export default function Sexualite() {
       ) : (
         <div className="Container">
           <div className="header">
-            <h2>Sexualité</h2>
+            <h2>Divers</h2>
             <p>
               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Soluta
               tenetur voluptatum facere reiciendis ex perspiciatis .
