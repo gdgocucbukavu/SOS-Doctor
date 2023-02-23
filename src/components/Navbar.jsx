@@ -69,13 +69,12 @@ const StyledNavbar = styled.nav`
   z-index: 1000;
 
   .container {
-    overflow: hidden;
     display: flex;
+    position: fixed;
     align-items: center;
     width: 100%;
     height: 60px;
     justify-content: space-between;
-    position: fixed;
     background-color: #fff8;
   }
 
