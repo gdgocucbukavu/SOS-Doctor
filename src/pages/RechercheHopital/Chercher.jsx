@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import searchIcon from "./Assets/searh.png";
+import axios from "axios";
 import { Hopitaux } from "./data/hopitaux";
 import CardHopital from "./componets/CardHopital";
 const Chercher = () => {
@@ -25,7 +26,19 @@ const Chercher = () => {
     if (query === "") {
       setData(Hopitaux);
     }
+
   });
+
+  useEffect(() => {
+ 
+      axios.get(`https://apigsdc.herokuapp.com/tousleshopitaux/`).then((res) => {
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
   return (
     <ChercherStyled>
       <div className="head">

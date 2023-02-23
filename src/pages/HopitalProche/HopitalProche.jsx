@@ -1,19 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 import { Articles } from "./data/Article";
-import { FaSearch, FaMapMarked } from "react-icons/fa";
 import CardArticle from "./component/CardArticle";
-import Button from "./component/Button";
-import { useNavigate, Outlet } from "react-router";
+import {Outlet } from "react-router";
 export default function HopitalProche() {
-  const navigation = useNavigate();
-  const [handleShow, sethandleShow] = React.useState(true);
-  const handleRoute = (link) => {
-    if (link === "/hopitalProche/proche") {
-      sethandleShow(false);
-    }
-    navigation(link);
-  };
+ 
   return (
     <StyledHopitalProche>
       <div className="ContainerLeft">
@@ -29,34 +20,7 @@ export default function HopitalProche() {
           </div>
         </div>
       </div>
-      {handleShow ? (
-        <div className="ContainerRight">
-          <h2>Hopital Proche</h2>
-          <p>
-            7 Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-            Doloremque veniam, necessitatibus, assumenda dicta corrupti omnis ad
-            beatae autem debitis maxime suscipit, dolore quis illum quidem.
-            Illum dolor harum enim voluptate.
-          </p>
-          <div className="ServiceContainer">
-            <Button
-              title="Maps"
-              detail="Idéal Pour un endroit inconnu"
-              icon={<FaMapMarked />}
-              color="#39c3f699"
-              action={() => handleRoute("/hopitalProche/map")}
-            />
-            <Button
-              title="Chercher"
-              detail="Idéal Pour un endroit inconnu"
-              icon={<FaSearch />}
-              action={() => handleRoute("/hopitalProche/proche")}
-            />
-          </div>
-        </div>
-      ) : (
-        <Outlet />
-      )}
+      <Outlet />
     </StyledHopitalProche>
   );
 }
