@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
-import logo from "../assets/logo_test.png";
-import res from "../assets/responsive.png";
+import logo from "../assets/logo_clean.png";
+
 import "hamburgers/dist/hamburgers.css";
 
 export default function Navbar() {
@@ -84,9 +84,15 @@ const StyledNavbar = styled.nav`
 
   .logo {
     margin-left: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding-top: 10px;
     img {
-      width: 40px;
-      height: 40px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
     }
   }
   .responsive {

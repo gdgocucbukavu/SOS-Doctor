@@ -19,6 +19,7 @@
     "react-best-chatbot": "^2.0.1",
     "react-dom": "^18.2.0",
     "react-icons": "^4.7.1",
+    "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.8.1",
     "react-scripts": "5.0.1",
     "react-select": "^5.7.0",
