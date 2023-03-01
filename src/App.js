@@ -20,10 +20,33 @@ import { useEffect, useState } from "react";
 import heart from "./pages/Accueil/Assets/heart.json";
 import Lottie from "lottie-react";
 import InstallPWA from "./components/PromptPwa";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   const [loading, setLoading] = useState(true);
-  const [showBtn, setShow] = useState(false);
+  const [showBtn, setShow] = useState(true);
+  const [location, setLocation] = useState({});
+
+  const getLocation = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (r) => {
+          setLocation({
+            lat: r.coords.latitude,
+            lng: r.coords.longitude,
+          });
+        },
+        (e) => {
+          console.log(e);
+        }
+      );
+    } else {
+      console.log("Geolocation is not supported by this browser.");
+      toast.error("Vous devez autoriser la géolocalisation");
+    }
+  };
+
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
@@ -31,7 +54,12 @@ function App() {
     setTimeout(() => {
       setShow(true);
     }, 5000);
-  });
+
+    if (Object.keys(location).length === 0) {
+      getLocation();
+    }
+    console.log(location);
+  }, [location]);
   return (
     <div className="App">
       <GlobalStyle />
@@ -60,14 +88,18 @@ function App() {
         <>
           <Navbar />
           <ScrollToTop />
+          <ToastContainer />
           <Routes>
             <Route path="/" element={<Accueil />} />
             <Route path="/Quicktest" element={<QuickTest />} />
             <Route path="/hopitalProche" element={<HopitalProche />}>
-              <Route path="/hopitalProche" element={<Right/>}/>
-              <Route path="/hopitalProche//proche" element={<Chercher />} />
+              <Route path="/hopitalProche" element={<Right />} />
+              <Route path="/hopitalProche/proche" element={<Chercher />} />
             </Route>
-            <Route path="hopitalProche/map" element={<Map />} />
+            <Route
+              path="hopitalProche/map"
+              element={<Map location={location} />}
+            />
             <Route path="*" element={<Accueil />} />
             <Route path="/Secours" element={<Secours />} />
             <Route path="/Sexualite" element={<Sexualite />} />
@@ -76,7 +108,7 @@ function App() {
             <Route path="/:parametre" element={<RechercheGlobal/>} />
 
           </Routes>
-          {showBtn && <InstallPWA />}
+          {showBtn && <InstallPWA setCLose={setShow} />}
           <ChatContainer />
         </>
       )}

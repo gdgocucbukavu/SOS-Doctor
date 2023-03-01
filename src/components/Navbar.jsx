@@ -66,7 +66,7 @@ const StyledNavbar = styled.nav`
   align-items: center;
   height: 60px;
   border: 1px solid rgba(159, 159, 159, 0.2);
-  z-index: 1000;
+  z-index: 2000;
 
   .container {
     display: flex;

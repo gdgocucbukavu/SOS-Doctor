@@ -15,42 +15,24 @@ const containerStyle = {
   height: "100vh",
 };
 
-function MyComponent() {
+function MyComponent({ location }) {
+  console.log(location);
+
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
-    googleMapsApiKey: "AIzaSyAD0mcKGSHmYBqJ5bwHXi7TYzNqAompmFc",
+    googleMapsApiKey: "AIzaSyBe3yWTT3EaTOalJAECt83laDW1JQ-Ba84",
     language: "fr",
-  });
-
-  const [location, setLocation] = useState({
-    lat: -2.5,
-    lng: 28.866667,
   });
 
   const [hospital, setHospital] = useState([]);
 
   const [map, setMap] = React.useState(null);
 
-  const getLocation = () => {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(showPosition);
-    } else {
-      console.log("Geolocation is not supported by this browser.");
-    }
-  };
   const handleOpenMap = (id, localisation) => {
     window.open(`https://www.google.com/maps/place/?q=place_id:${id}`);
   };
-  const showPosition = (position) => {
-    console.log(position.coords.latitude, position.coords.longitude);
-    setLocation({
-      lat: position.coords.latitude,
-      lng: position.coords.longitude,
-    });
-  };
-  useEffect(() => {
-    getLocation();
 
+  useEffect(() => {
     axios
       .get(`https://apigsdc.herokuapp.com/hp/${location.lat}/${location.lng}`)
       .then((res) => {
@@ -157,7 +139,6 @@ const MapContainer = styled.div`
     margin: auto;
     height: 100px;
     z-index: 1000;
-    background-color: transparent;
 
     display: flex;
     overflow-x: auto;
@@ -165,6 +146,8 @@ const MapContainer = styled.div`
 
     @media screen and (max-width: 768px) {
       bottom: 140px;
+
+      min-height: 150px;
     }
     .card {
       min-width: 300px;
@@ -177,6 +160,10 @@ const MapContainer = styled.div`
       box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
       min-height: 100px;
       margin-bottom: 10px;
+
+      @media screen and (max-width: 768px) {
+        height: 70px;
+      }
 
       @keyframes open {
         0% {
