@@ -9,6 +9,7 @@ import Chercher from "./pages/RechercheHopital/Chercher";
 import Secours from "./pages/Secours/Secours";
 import Navbar from "./components/Navbar";
 import ScrollToTop from "./fonctions/ScrollToTop";
+import RechercheGlobal from "./pages/RechercheGlobal/RechercheGlobal";
 import Map from "./pages/map/Map";
 import "./app.css";
 import ChatContainer from "./components/ChatContainer";
@@ -72,6 +73,8 @@ function App() {
             <Route path="/Sexualite" element={<Sexualite />} />
             <Route path="/Maternite" element={<Maternite />} />
             <Route path="/divers" element={<Divers />} />
+            <Route path="/:parametre" element={<RechercheGlobal/>} />
+
           </Routes>
           {showBtn && <InstallPWA />}
           <ChatContainer />

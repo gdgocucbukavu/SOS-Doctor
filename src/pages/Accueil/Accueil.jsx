@@ -10,10 +10,16 @@ import rainbow from "./Assets/Rainbow.png";
 
 export default function Accueil() {
   const navigate = useNavigate();
+  const [query, setQuery] = React.useState("");
 
   const ActionButton = (path) => {
     navigate(path);
   };
+
+  const SearchGlobal =()=>{
+    setQuery(document.getElementById("Search").value)
+    navigate("/"+query)
+  }
 
   return (
     <>
@@ -37,8 +43,12 @@ export default function Accueil() {
         </div>
         <div className="ContainerRight">
           <div className="Search">
-            <input type="text" placeholder="Chercher un article..." />
-            <img src={searchIcon} alt="search" />
+            <input 
+            type="text" 
+            placeholder="Chercher un article..."
+            id="Search"
+             />
+            <img src={searchIcon} alt="search" onClick={SearchGlobal} />
           </div>
           <div className="Services">
             <h2>Services</h2>
