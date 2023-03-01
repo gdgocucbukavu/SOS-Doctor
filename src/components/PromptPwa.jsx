@@ -76,6 +76,10 @@ const PromptContainer = styled.div`
       top: 50%;
     }
   }
+
+  @media screen and (max-width: 668px) {
+    width: 90%;
+  }
   .container {
     display: flex;
     align-items: center;
