@@ -8,6 +8,7 @@ import "hamburgers/dist/hamburgers.css";
 export default function Navbar() {
   const [open, setOpen] = React.useState(false);
   const { pathname } = useLocation();
+
   const handleClose = () => {
     setOpen(false);
   };
@@ -52,7 +53,7 @@ export default function Navbar() {
             </li>
           </ul>
           <div className="second">
-            <Link to="/">Connexion</Link>
+            <Link to="/Connexion">Connexion</Link>
           </div>
         </div>
       </div>

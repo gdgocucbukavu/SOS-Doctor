@@ -1,45 +1,22 @@
 import React, { useEffect, useState } from "react";
 import Select from "react-select";
-import { Symptomes } from "./data/data.js";
 import Button from "../../components/Button";
 import styled from "styled-components";
 import Illustration from "./Assets/415 1.svg";
 import Illustration1 from "./Assets/Illustra.svg";
-import { apilink } from "../../config/api.js";
-import Http from "../../config/http.js";
-import Input from "./Component/Input.jsx";
+import { useNavigate } from "react-router-dom";
 
-export default function QuickTest() {
-  const [selectData, setSelectData] = useState([]);
-  // [
+export default function AjoutCure() {
+ const navigate=useNavigate()
 
-  useEffect(() => {
-    document.title = "Quick Test";
-    Http()
-      .get(`/symptoms?token=${apilink}&language=en-gb`)
-      .then((res) => {
-        console.log(res.data);
-        setSelectData(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
-
-  const ndata = [];
-  selectData.map((item) => {
-    ndata.push({ value: item.ID, label: item.Name });
-  });
-  console.log(ndata);
-  const optionsSexe = [
-    { value: "chocolate", label: "Masculin" },
-    { value: "strawberry", label: "Feminin" },
-  ];
+ const Suivant=()=>{
+  navigate("/SuivantAjouterCure")
+ }
   return (
     <StyledQuickTest>
       <div className="ContainerLeft">
         <div className="Header">
-          <h2>Quick test</h2>
+          <h2>Ajouter une cure</h2>
 
           <p>
             Vous vous sentez mal ou vous soupçonnez quelque chose ! Dites-moi
@@ -52,12 +29,15 @@ export default function QuickTest() {
         </div>
         <form action="">
           <div className="testInfos">
-            <p>1. Veuillez Choisir les Symptomes :</p>
+            <p>1. Veuillez Choisir un médicament :</p>
             <Select
-              defaultValue={Symptomes[2]}
-              isMulti
-              name="colors"
-              options={ndata ?? Symptomes}
+             className="basic-single"
+             classNamePrefix="select"
+             defaultValue="Masculin"
+             isMulti
+             isClearable={true}
+             name="sexe"
+             options={[]}
               styles={{
                 control: (state) => ({
                   width: "100%",
@@ -73,14 +53,14 @@ export default function QuickTest() {
             />
           </div>
           <div className="testInfos">
-            <p>2.Votre Sexe :</p>
+            <p>2.Delai de cette cure :</p>
             <Select
               className="basic-single"
               classNamePrefix="select"
               defaultValue="Masculin"
               isClearable={true}
               name="sexe"
-              options={optionsSexe}
+              options={[]}
               styles={{
                 control: (state) => ({
                   width: "100%",
@@ -94,20 +74,33 @@ export default function QuickTest() {
             />
           </div>
           <div className="testInfos">
-            <p>3. Votre Age :</p>
-            <Input type="number" placeholder="2001" />
+            <p>3. Fréquence par jour :</p>
+            <Select
+              className="basic-single"
+              classNamePrefix="select"
+              defaultValue="Masculin"
+              isClearable={true}
+              name="sexe"
+              options={[]}
+              styles={{
+                control: (state) => ({
+                  width: "100%",
+                  border: "1px solid #39C3F6",
+                  borderRadius: "5px",
+                  minHeight: "50px",
+                  display: "flex",
+                  borderColor: state.isFocused ? "grey" : "#39C3F6",
+                }),
+              }}
+            />
           </div>
           <div className="footer">
             <Button
-              title={"Tester maintenant"}
+              title={"Suivant"}
               bg={"#AE376D"}
               color={"white"}
+              event={Suivant}
             />
-            <p>
-              Avant de soumettre ces informations, veuillez vous rassurer
-              qu'elles sont correctes et complètes, pour que je puisse mieux
-              vous aider.
-            </p>
           </div>
         </form>
       </div>
