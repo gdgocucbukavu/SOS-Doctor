@@ -7,11 +7,11 @@ import { useNavigate } from "react-router-dom";
 import { FaPlus } from "react-icons/fa";
 import CardArticle from "./component/CardArticle";
 export default function CurMedicament() {
-  const Navigate=useNavigate()
+  const Navigate = useNavigate();
 
-  const AjouterCure=()=>{
-    Navigate("/AjouterCure")
-  }
+  const AjouterCure = () => {
+    Navigate("/AjouterCure");
+  };
   return (
     <StyledHopitalProche>
       <div className="ContainerLeft">
@@ -30,26 +30,23 @@ export default function CurMedicament() {
       <div className="ContainerRight">
         <div className="head">
           <h2>Cure médicament</h2>
-          <button className="button" onClick={AjouterCure}>
-            <FaPlus/>
-        </button>
+          <div className="button" onClick={AjouterCure}>
+            <FaPlus /> ajouter
+          </div>
         </div>
 
         <div className="body">
-              <img src={illustraction} alt="illustration" />
-              <p>Vous n'avez pas une cure en cour</p>
-              <div className="button">
-                <Button
-                title={"Ajouter maintenant"}
-                bg={"#AE376D"}
-                color={"white"}
-                event={ AjouterCure}
-                />
-                
-              </div>
-              
+          <img src={illustraction} alt="illustration" />
+          <p>Vous n'avez pas une cure en cour</p>
+          <div className="button">
+            <Button
+              title={"Ajouter maintenant"}
+              bg={"#AE376D"}
+              color={"white"}
+              event={AjouterCure}
+            />
+          </div>
         </div>
-
       </div>
     </StyledHopitalProche>
   );
@@ -74,15 +71,14 @@ const StyledHopitalProche = styled.div`
     flex: 1;
     flex-direction: column;
     padding: 1rem;
-    
-    z-index:100;
+
+    z-index: 100;
     top: 70px;
 
     @media (max-width: 768px) {
       display: none;
     }
     .Container {
-      
       background: rgba(215, 235, 255, 0.21);
       border-radius: 5px;
       overflow: auto;
@@ -159,30 +155,34 @@ const StyledHopitalProche = styled.div`
       padding: 1rem;
       padding-right: 15px;
     }
-    .head{
-      display:flex;
-      gap:25px;
-      align-items:center;
-      h2{
-        width:100%;
+    .head {
+      display: flex;
+      gap: 25px;
+      align-items: center;
+      h2 {
+        width: 100%;
+        font-size: 28px;
       }
 
-      button{
-        color:#fff;
-        width:40px;
-        height:40px;
-        background:#AE376D;
-        border:none;
-        cursor:pointer;
-        font-size:17px;
-        text-align:center;
-        border-radius:50%;
+      .button {
+        color: #fff;
+        background: #ae376d;
+        border: none;
+        cursor: pointer;
+        font-size: 17px;
+        text-align: center;
+        padding: 7px 15px;
+
         display: none;
         @media (max-width: 768px) {
-          display: block;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 5px;
+          border-radius: 5px;
         }
       }
-     }
+    }
     @media (max-width: 1210px) {
       flex: 2;
     }
@@ -198,24 +198,30 @@ const StyledHopitalProche = styled.div`
         font-size: 28px;
       }
     }
-   
 
-   .body{
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    padding-bottom:18px;
+    .body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding-bottom: 18px;
+      img {
+        width: 60%;
+      }
 
-    p{
-      font-weight: 600;
-      font-size: 40px;
-      line-height: 60px;
+      p {
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 60px;
+      }
+
+      @media (max-width: 768px) {
+        img {
+          width: 95%;
+        }
+        align-items: center;
+        justify-content: center;
+      }
     }
-    @media (max-width: 768px) {
-      display:none;
-    }
-   }
   }
- 
 `;

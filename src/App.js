@@ -7,7 +7,7 @@ import AjoutCure from "./pages/AjouterUneCure/AjoutCure";
 import Connexion from "./pages/Connexion/Connexion";
 import Chercher from "./pages/RechercheHopital/Chercher";
 import CurMedicament from "./pages/CureMedicament/CureMedicament";
-import SuivantAjoutCure from "./pages/SuivantAjoutCure/SuivantAjoutCure"
+import SuivantAjoutCure from "./pages/SuivantAjoutCure/SuivantAjoutCure";
 
 import Secours from "./pages/Secours/Secours";
 import Navbar from "./components/Navbar";
@@ -25,8 +25,11 @@ import Lottie from "lottie-react";
 import InstallPWA from "./components/PromptPwa";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import ProtectedBefore from "./components/PotectedBefore";
+import Deconnexion from "./components/Deconnexion";
 
 function App() {
+  const [isLoggedIn, setIsLogged] = useState(false);
   const [loading, setLoading] = useState(true);
   const [showBtn, setShow] = useState(true);
   const [location, setLocation] = useState({});
@@ -57,6 +60,9 @@ function App() {
     setTimeout(() => {
       setShow(true);
     }, 5000);
+    if (localStorage.getItem("user")) {
+      setIsLogged(true);
+    }
 
     if (Object.keys(location).length === 0) {
       getLocation();
@@ -94,10 +100,18 @@ function App() {
           <ToastContainer />
           <Routes>
             <Route path="/" element={<Accueil />} />
-            <Route path="/Connexion" element={<Connexion/>} />
-            <Route path="/CureMedicament" element={<CurMedicament/>} />
-            <Route path="/AjouterCure" element={<AjoutCure/>} />
-            <Route path="/SuivantAjouterCure" element={<SuivantAjoutCure/>} />
+            <Route path="/Connexion" element={<Connexion />} />
+            <Route path="/Deconnexion" element={<Deconnexion />} />
+            <Route
+              path="/CureMedicament"
+              element={
+                <ProtectedBefore isLoggedIn={isLoggedIn}>
+                  <CurMedicament />
+                </ProtectedBefore>
+              }
+            />
+            <Route path="/AjouterCure" element={<AjoutCure />} />
+            <Route path="/SuivantAjouterCure" element={<SuivantAjoutCure />} />
             <Route path="/hopitalProche" element={<HopitalProche />}>
               <Route path="/hopitalProche" element={<Right />} />
               <Route path="/hopitalProche/proche" element={<Chercher />} />
@@ -106,8 +120,8 @@ function App() {
               path="hopitalProche/map"
               element={<Map location={location} />}
             />
-             
-            <Route path="*" element={<Accueil/>} />
+
+            <Route path="*" element={<Accueil />} />
             <Route path="/Secours" element={<Secours />} />
             <Route path="/Sexualite" element={<Sexualite />} />
             <Route path="/Maternite" element={<Maternite />} />

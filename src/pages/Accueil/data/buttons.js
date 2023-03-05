@@ -10,14 +10,14 @@ export const Buttons = [
     icone: Vector1,
     nom: "Cure médicament",
     description:
-      "Le test vous aide  avec les orienations vers un hôpital ou une clinique ayant un médecin spécialisé pour traiter votre cas.",
+      "Je vous aide à bien planifier vos cures médicaments et à bien les suivre.",
     path: "/CureMedicament",
   },
   {
     icone: Vector2,
     nom: "Hopital Proche",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate necessitatibus repellendus illo adipisci fugit natus, ",
+      "Je vous aide à trouver l'hopital le plus proche de vous avec le numéro d'urgence",
     path: "/hopitalProche",
   },
   {

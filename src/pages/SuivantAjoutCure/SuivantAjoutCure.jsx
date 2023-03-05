@@ -8,9 +8,7 @@ import Illustration1 from "./Assets/Illustra.svg";
 import { apilink } from "../../config/api.js";
 import Http from "../../config/http.js";
 
-
-export default function AjoutCure() {
-
+export default function AjoutCureSuivant({ show, setShow }) {
   const fréquence = [
     { value: "1", label: "une sémaine" },
     { value: "2", label: "deux semaine" },
@@ -19,6 +17,12 @@ export default function AjoutCure() {
     { value: "1", label: "ibiprofene" },
     { value: "2", label: "docteur maison" },
   ];
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  });
   return (
     <StyledQuickTest>
       <div className="ContainerLeft">
@@ -38,13 +42,13 @@ export default function AjoutCure() {
           <div className="testInfos">
             <p>4. Sélectionner les heures de prise de médicaments:</p>
             <Select
-             className="basic-single"
-             classNamePrefix="select"
-             defaultValue="Masculin"
-             isMulti
-             isClearable={true}
-             name="sexe"
-             options={medicament}
+              className="basic-single"
+              classNamePrefix="select"
+              defaultValue="Masculin"
+              isMulti
+              isClearable={true}
+              name="sexe"
+              options={medicament}
               styles={{
                 control: (state) => ({
                   width: "100%",
@@ -82,25 +86,23 @@ export default function AjoutCure() {
           </div>
           <div className="footer">
             <Button
-              title={"Vous y etes presque"}
-              bg={"#AE376D"}
-              color={"white"}
+              title={"Retourner"}
+              type="button"
+              bg={"#3331"}
+              color="#333"
+              event={() => setShow(!show)}
             />
+            <Button title={"Ajouter"} bg={"#AE376D"} color={"white"} />
           </div>
         </form>
         <p>
-        Lorem ipsum dolor sit amet consectetur, 
-        adipisicing elit. Voluptatum fugiat ea, 
-        officia incidunt tempore eum possimus, 
-        cum consectetur autem quos laudantium 
-        reprehenderit quasi atque, sit assumenda 
-        esse aliquam officiis eligendi.
-      </p>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum
+          fugiat ea
+        </p>
       </div>
       <div className="ContainerRight">
         <img src={Illustration} alt="Illustration" />
       </div>
-   
     </StyledQuickTest>
   );
 }
@@ -161,6 +163,9 @@ const StyledQuickTest = styled.div`
         line-height: 60px;
         color: #39c3f6;
         padding: 0;
+        @media (max-width: 768px) {
+          font-size: 28px;
+        }
       }
       p {
         font-style: normal;

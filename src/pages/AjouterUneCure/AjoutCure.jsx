@@ -5,109 +5,116 @@ import styled from "styled-components";
 import Illustration from "./Assets/415 1.svg";
 import Illustration1 from "./Assets/Illustra.svg";
 import { useNavigate } from "react-router-dom";
+import { delais, frequence, medicaments } from "./data";
+import AjoutCureSuivant from "../SuivantAjoutCure/SuivantAjoutCure";
 
 export default function AjoutCure() {
- const navigate=useNavigate()
+  const navigate = useNavigate();
+  const [show, setShow] = useState(false);
 
- const Suivant=()=>{
-  navigate("/SuivantAjouterCure")
- }
+  const Suivant = () => {
+    setShow(true);
+  };
   return (
-    <StyledQuickTest>
-      <div className="ContainerLeft">
-        <div className="Header">
-          <h2>Ajouter une cure</h2>
+    <form>
+      {!show && (
+        <StyledQuickTest>
+          <div className="ContainerLeft">
+            <div className="Header">
+              <h2>Ajouter une cure</h2>
 
-          <p>
-            Vous vous sentez mal ou vous soupçonnez quelque chose ! Dites-moi
-            tout. Je peux vous aider. J'ai besoin de tous les détails possibles
-            pour pouvoir vous aider avec précision.
-          </p>
-          <div className="ImageIllustration">
-            <img src={Illustration1} alt="" />
+              <p>
+                Planifiez votre cure et laisse moi m'occuper de tout. Remplissez
+                les champs necéssaires{" "}
+              </p>
+              <div className="ImageIllustration">
+                <img src={Illustration1} alt="" />
+              </div>
+            </div>
+            <form action="">
+              <div className="testInfos">
+                <p>1. Veuillez Choisir un médicament :</p>
+                <Select
+                  className="basic-single"
+                  classNamePrefix="select"
+                  defaultValue="2"
+                  isClearable={true}
+                  name="sexe"
+                  options={medicaments}
+                  styles={{
+                    control: (state) => ({
+                      width: "100%",
+                      overflow: "hidden",
+                      border: "1px solid #39C3F6",
+                      borderRadius: "5px",
+                      minHeight: "50px",
+                      display: "flex",
+                      borderColor: state.isFocused ? "grey" : "#39C3F6",
+                    }),
+                  }}
+                  required
+                />
+              </div>
+              <div className="testInfos">
+                <p>2.Delai de cette cure :</p>
+                <Select
+                  className="basic-single"
+                  classNamePrefix="select"
+                  defaultValue="1"
+                  isClearable={true}
+                  name="delaisCure"
+                  required
+                  options={delais}
+                  styles={{
+                    control: (state) => ({
+                      width: "100%",
+                      border: "1px solid #39C3F6",
+                      borderRadius: "5px",
+                      minHeight: "50px",
+                      display: "flex",
+                      borderColor: state.isFocused ? "grey" : "#39C3F6",
+                    }),
+                  }}
+                />
+              </div>
+              <div className="testInfos">
+                <p>3. Fréquence par jour :</p>
+                <Select
+                  className="basic-single"
+                  classNamePrefix="select"
+                  isClearable={true}
+                  name="frequencejournaliere"
+                  options={frequence}
+                  required
+                  styles={{
+                    control: (state) => ({
+                      width: "100%",
+                      border: "1px solid #39C3F6",
+                      borderRadius: "5px",
+                      minHeight: "50px",
+                      display: "flex",
+                      borderColor: state.isFocused ? "grey" : "#39C3F6",
+                    }),
+                  }}
+                />
+              </div>
+              <div className="footer">
+                <Button
+                  title={"Suivant"}
+                  bg={"#AE376D"}
+                  color={"white"}
+                  event={Suivant}
+                />
+              </div>
+            </form>
           </div>
-        </div>
-        <form action="">
-          <div className="testInfos">
-            <p>1. Veuillez Choisir un médicament :</p>
-            <Select
-             className="basic-single"
-             classNamePrefix="select"
-             defaultValue="Masculin"
-             isMulti
-             isClearable={true}
-             name="sexe"
-             options={[]}
-              styles={{
-                control: (state) => ({
-                  width: "100%",
-                  overflow: "hidden",
-                  border: "1px solid #39C3F6",
-                  borderRadius: "5px",
-                  minHeight: "50px",
-                  display: "flex",
-                  borderColor: state.isFocused ? "grey" : "#39C3F6",
-                }),
-              }}
-              required
-            />
+          <div className="ContainerRight">
+            <img src={Illustration} alt="Illustration" />
           </div>
-          <div className="testInfos">
-            <p>2.Delai de cette cure :</p>
-            <Select
-              className="basic-single"
-              classNamePrefix="select"
-              defaultValue="Masculin"
-              isClearable={true}
-              name="sexe"
-              options={[]}
-              styles={{
-                control: (state) => ({
-                  width: "100%",
-                  border: "1px solid #39C3F6",
-                  borderRadius: "5px",
-                  minHeight: "50px",
-                  display: "flex",
-                  borderColor: state.isFocused ? "grey" : "#39C3F6",
-                }),
-              }}
-            />
-          </div>
-          <div className="testInfos">
-            <p>3. Fréquence par jour :</p>
-            <Select
-              className="basic-single"
-              classNamePrefix="select"
-              defaultValue="Masculin"
-              isClearable={true}
-              name="sexe"
-              options={[]}
-              styles={{
-                control: (state) => ({
-                  width: "100%",
-                  border: "1px solid #39C3F6",
-                  borderRadius: "5px",
-                  minHeight: "50px",
-                  display: "flex",
-                  borderColor: state.isFocused ? "grey" : "#39C3F6",
-                }),
-              }}
-            />
-          </div>
-          <div className="footer">
-            <Button
-              title={"Suivant"}
-              bg={"#AE376D"}
-              color={"white"}
-              event={Suivant}
-            />
-          </div>
-        </form>
-      </div>
-      <div className="ContainerRight">
-        <img src={Illustration} alt="Illustration" />
-      </div>
-    </StyledQuickTest>
+        </StyledQuickTest>
+      )}
+      {show && <AjoutCureSuivant setShow={setShow} show={show} />}
+    </form>
   );
 }
 const StyledQuickTest = styled.div`
@@ -167,6 +174,10 @@ const StyledQuickTest = styled.div`
         line-height: 60px;
         color: #39c3f6;
         padding: 0;
+
+        @media (max-width: 768px) {
+          font-size: 28px;
+        }
       }
       p {
         font-style: normal;

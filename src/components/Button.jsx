@@ -12,12 +12,12 @@ export default function Button({ title, event, bg, color, icon }) {
 
 const StyledButton = styled.button`
   width: 100%;
-  padding: 12px 10px;
+  padding: 6px 13px;
   border-radius: 5px;
   font-family: "poppins";
   font-style: normal;
   font-weight: 600;
-  font-size: 22px;
+  font-size: 14px;
   line-height: 36px;
   color: ${(props) => (props.color ? props.color : "#fff")};
   background-color: ${(props) => (props.bg ? props.bg : "#DA344D")};
