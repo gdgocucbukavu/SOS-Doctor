@@ -3,9 +3,15 @@ import styled from "styled-components";
 import { Articles } from "./data/Article";
 import CardArticle from "./component/CardArticle";
 import Article from "../../components/Article";
+import { useLocation } from "react-router-dom";
+import { useEffect } from "react";
+import axios from "axios";
 export default function Sexualite() {
+  const { pathname } = useLocation();
+  const t = pathname.split("/")[1];
   const [OpenArtcticle, SetOpen] = React.useState(false);
   const [ArticleDetail, setArtcileDetaille] = React.useState([]);
+
   const OuvrirArtcle = (cle) => {
     console.log(Articles[1]);
     SetOpen(true);
@@ -14,6 +20,18 @@ export default function Sexualite() {
   const CloseArtcticle = () => {
     SetOpen(!OpenArtcticle);
   };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    axios
+      .get("https://apisosdoc.herokuapp.com/api/articles")
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  });
   return (
     <Sexualites>
       {OpenArtcticle ? (

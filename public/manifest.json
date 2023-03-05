@@ -2,7 +2,7 @@
   "name": "SOS DOKTA",
   "short_name": "sos dokta",
   "theme_color": "#ae376d",
-  "background_color": "#39c3f6",
+  "background_color": "#39c3f650",
   "display": "standalone",
   "scope": "/",
   "start_url": "/",

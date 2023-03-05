@@ -16,11 +16,18 @@ export default function Accueil() {
     navigate(path);
   };
 
-  const SearchGlobal =()=>{
-    setQuery(document.getElementById("Search").value)
-    navigate("/"+query)
-  }
+  const SearchGlobal = () => {
+    navigate(`search/${query}`);
+  };
 
+  const handleChange = (e) => {
+    setQuery(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    SearchGlobal(query);
+  };
   return (
     <>
       <StyledAccueil bg={Bg}>
@@ -42,14 +49,17 @@ export default function Accueil() {
           </div>
         </div>
         <div className="ContainerRight">
-          <div className="Search">
-            <input 
-            type="text" 
-            placeholder="Chercher un article..."
-            id="Search"
-             />
+          <form className="Search" onSubmit={(e) => handleSubmit(e)}>
+            <input
+              type="text"
+              placeholder="Chercher un article..."
+              id="Search"
+              onChange={(e) => handleChange(e)}
+            />
+
             <img src={searchIcon} alt="search" onClick={SearchGlobal} />
-          </div>
+          </form>
+
           <div className="Services">
             <h2>Services</h2>
             <p>

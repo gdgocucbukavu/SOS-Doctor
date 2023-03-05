@@ -105,8 +105,7 @@ function App() {
             <Route path="/Sexualite" element={<Sexualite />} />
             <Route path="/Maternite" element={<Maternite />} />
             <Route path="/divers" element={<Divers />} />
-            <Route path="/:parametre" element={<RechercheGlobal/>} />
-
+            <Route path="/search/:parametre" element={<RechercheGlobal />} />
           </Routes>
           {showBtn && <InstallPWA setCLose={setShow} />}
           <ChatContainer />
