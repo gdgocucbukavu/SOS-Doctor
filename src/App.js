@@ -3,8 +3,11 @@ import GlobalStyle from "./theme/globalStyles";
 import Accueil from "./pages/Accueil/Accueil";
 import HopitalProche from "./pages/HopitalProche/HopitalProche";
 import Right from "./pages/HopitalProche/component/ContainerRight";
-import QuickTest from "./pages/Quicktest/QuickTest";
+import AjoutCure from "./pages/AjouterUneCure/AjoutCure";
+import Connexion from "./pages/Connexion/Connexion";
 import Chercher from "./pages/RechercheHopital/Chercher";
+import CurMedicament from "./pages/CureMedicament/CureMedicament";
+import SuivantAjoutCure from "./pages/SuivantAjoutCure/SuivantAjoutCure"
 
 import Secours from "./pages/Secours/Secours";
 import Navbar from "./components/Navbar";
@@ -91,7 +94,10 @@ function App() {
           <ToastContainer />
           <Routes>
             <Route path="/" element={<Accueil />} />
-            <Route path="/Quicktest" element={<QuickTest />} />
+            <Route path="/Connexion" element={<Connexion/>} />
+            <Route path="/CureMedicament" element={<CurMedicament/>} />
+            <Route path="/AjouterCure" element={<AjoutCure/>} />
+            <Route path="/SuivantAjouterCure" element={<SuivantAjoutCure/>} />
             <Route path="/hopitalProche" element={<HopitalProche />}>
               <Route path="/hopitalProche" element={<Right />} />
               <Route path="/hopitalProche/proche" element={<Chercher />} />
@@ -100,7 +106,8 @@ function App() {
               path="hopitalProche/map"
               element={<Map location={location} />}
             />
-            <Route path="*" element={<Accueil />} />
+             
+            <Route path="*" element={<Accueil/>} />
             <Route path="/Secours" element={<Secours />} />
             <Route path="/Sexualite" element={<Sexualite />} />
             <Route path="/Maternite" element={<Maternite />} />

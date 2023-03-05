@@ -8,10 +8,10 @@ import divers from "../Assets/divers.png";
 export const Buttons = [
   {
     icone: Vector1,
-    nom: "Quick Test",
+    nom: "Cure médicament",
     description:
       "Le test vous aide  avec les orienations vers un hôpital ou une clinique ayant un médecin spécialisé pour traiter votre cas.",
-    path: "/Quicktest",
+    path: "/CureMedicament",
   },
   {
     icone: Vector2,
