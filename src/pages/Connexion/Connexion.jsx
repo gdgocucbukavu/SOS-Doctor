@@ -43,9 +43,7 @@ export default function Connexion() {
         }
         // The email of the user's account used.
         if (errorCode === "auth/account-exists-with-different-credential") {
-          toast.error(
-            "You have already signed up with a different auth provider for that email."
-          );
+          toast.error("Vous etes déjà connecté avec un autre compte.");
           // If you are using multiple auth providers on your app you should handle linking
           // the user's accounts here.
         } else {
