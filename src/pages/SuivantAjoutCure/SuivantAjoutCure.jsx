@@ -9,8 +9,8 @@ import { apilink } from "../../config/api.js";
 import Http from "../../config/http.js";
 
 export default function AjoutCureSuivant({ show, setShow }) {
-  const fréquence = [
-    { value: "1", label: "une sémaine" },
+  const heure = [
+    { value: "1", label: "08h" },
     { value: "2", label: "deux semaine" },
   ];
   const medicament = [
@@ -71,7 +71,7 @@ export default function AjoutCureSuivant({ show, setShow }) {
               defaultValue="Masculin"
               isClearable={true}
               name="sexe"
-              options={fréquence}
+              options={heure}
               styles={{
                 control: (state) => ({
                   width: "100%",

@@ -49,7 +49,9 @@ export default function Navbar() {
           {user && (
             <div className="profile">
               <img src={user.photoURL} alt="user" onClick={handledown} />
-              <p onClick={handledown}>{user.displayName.split(" ")[0]}</p>
+              <p onClick={handledown}>
+                {user && user.displayName.split(" ")[0]}
+              </p>
               <div
                 className={show ? "dropdown active" : "dropdown"}
                 onMouseLeave={() => setShow(!show)}
@@ -80,7 +82,9 @@ export default function Navbar() {
             {user && (
               <div className="profile">
                 <img src={user.photoURL} alt="user" onClick={handledown} />
-                <p onClick={handledown}>{user.displayName.split(" ")[0]}</p>
+                <p onClick={handledown}>
+                  {user && user.displayName.split(" ")[0]}
+                </p>
                 <div
                   className={show ? "dropdown active" : "dropdown"}
                   onMouseLeave={() => setShow(!show)}

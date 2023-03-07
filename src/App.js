@@ -27,6 +27,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ProtectedBefore from "./components/PotectedBefore";
 import Deconnexion from "./components/Deconnexion";
+import { requestPermission } from "./fonction";
 
 function App() {
   const [isLoggedIn, setIsLogged] = useState(false);
@@ -63,6 +64,8 @@ function App() {
     if (localStorage.getItem("user")) {
       setIsLogged(true);
     }
+
+    requestPermission();
 
     if (Object.keys(location).length === 0) {
       getLocation();
