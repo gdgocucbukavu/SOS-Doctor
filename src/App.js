@@ -7,7 +7,6 @@ import AjoutCure from "./pages/AjouterUneCure/AjoutCure";
 import Connexion from "./pages/Connexion/Connexion";
 import Chercher from "./pages/RechercheHopital/Chercher";
 import CurMedicament from "./pages/CureMedicament/CureMedicament";
-import SuivantAjoutCure from "./pages/SuivantAjoutCure/SuivantAjoutCure";
 
 import Secours from "./pages/Secours/Secours";
 import Navbar from "./components/Navbar";
@@ -114,7 +113,6 @@ function App() {
               }
             />
             <Route path="/AjouterCure" element={<AjoutCure />} />
-            <Route path="/SuivantAjouterCure" element={<SuivantAjoutCure />} />
             <Route path="/hopitalProche" element={<HopitalProche />}>
               <Route path="/hopitalProche" element={<Right />} />
               <Route path="/hopitalProche/proche" element={<Chercher />} />

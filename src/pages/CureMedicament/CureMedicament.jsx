@@ -1,24 +1,33 @@
-import React from "react";
+import React,{useState,useEffect} from "react";
 import styled from "styled-components";
-import Button from "../../components/Button";
+import {Medicaments} from "./data/Cure"
+import AucuneCure from "./component/AucuneCure";
+import CardMedicament from "./component/CardMedicament";
 import { Articles } from "./data/Article";
-import illustraction from "./Assets/Illustration.svg";
-import { useNavigate } from "react-router-dom";
 import { FaPlus } from "react-icons/fa";
 import CardArticle from "./component/CardArticle";
+import { useNavigate } from "react-router-dom";
 export default function CurMedicament() {
-  const Navigate = useNavigate();
+const [DataCure,setDataCure]=useState(Medicaments)
+const [show,setShow]=useState(false)
+const Navigate = useNavigate();
 
-  const AjouterCure = () => {
-    Navigate("/AjouterCure");
-  };
+const AjouterCure = () => {
+  Navigate("/AjouterCure");
+};
+useEffect(() => {
+  if (DataCure.length >=1){
+    setShow(true)
+  }
+
+})
   return (
     <StyledHopitalProche>
       <div className="ContainerLeft">
         <div className="Container">
           <div className="Head">
             <h2>Articles Recents</h2>
-            <p>Retrouvez les articles sur la santé ici :</p>
+            <p>Retrouvez les articles sur la santé icii :</p>
           </div>
           <div className="ArticlesContainer">
             {Articles.map((Article) => (
@@ -27,27 +36,68 @@ export default function CurMedicament() {
           </div>
         </div>
       </div>
+      {
+          show?
       <div className="ContainerRight">
-        <div className="head">
-          <h2>Cure médicament</h2>
-          <div className="button" onClick={AjouterCure}>
-            <FaPlus /> ajouter
-          </div>
-        </div>
+      <div className="head">
+      <h2>Cure médicament</h2>
+      <button className="ButtonAjout " onClick={AjouterCure}>
+        <FaPlus className="icone"/>
+        <p>Ajouter</p>
+      </button>
+   </div>
 
-        <div className="body">
-          <img src={illustraction} alt="illustration" />
-          <p>Vous n'avez pas une cure en cour</p>
-          <div className="button">
-            <Button
-              title={"Ajouter maintenant"}
-              bg={"#AE376D"}
-              color={"white"}
-              event={AjouterCure}
-            />
-          </div>
+   <p>Lorem ipsum dolor sit amet 
+    consectetur adipisicing elit. 
+    Velit nobis tenetur consequuntur 
+    accusantium rerum sunt molestias, 
+    quo aperiam! Amet doloribus tempore 
+    molestiae ad doloremque id consequuntur 
+    unde adipisci quaerat vero.
+  </p>
+
+  <div className="body">
+    <div className="ContainerCure">
+      {
+        Medicaments.map((medicament) => (
+          <CardMedicament data={medicament}/>
+          )
+        )
+      }
+
+    </div>
+
+    <div className="footer">
+      <div className="Card">
+        <p>paludisme</p>
+        <div className="text">
+          <p>
+          Le paludisme est une maladie 
+          humaine potentiellement mortelle 
+          causée par des parasites que transmettent 
+          les piqûres de moustiques anophèles femelles 
+          infectées.
+          </p>
         </div>
+        <div className="SavorPlus">
+          <button>
+            Apprendre plus
+          </button>
+        </div>
+       
       </div>
+    </div>
+    
+        
+  </div>
+        
+      </div>
+          :
+          <div className="ContainerRight">
+                     <AucuneCure/>
+          </div>
+ 
+        }
     </StyledHopitalProche>
   );
 }
@@ -164,7 +214,7 @@ const StyledHopitalProche = styled.div`
         font-size: 28px;
       }
 
-      .button {
+      .ButtonAjout {
         color: #fff;
         background: #ae376d;
         border: none;
@@ -172,8 +222,11 @@ const StyledHopitalProche = styled.div`
         font-size: 17px;
         text-align: center;
         padding: 7px 15px;
-
-        display: none;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        border-radius: 5px;
+        display: flex;
         @media (max-width: 768px) {
           display: flex;
           align-items: center;
@@ -183,6 +236,74 @@ const StyledHopitalProche = styled.div`
         }
       }
     }
+    .body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding-bottom: 18px;
+      img {
+        width: 60%;
+      }
+
+      .ContainerCure{
+        display:flex;
+        flex-wrap:wrap;
+        padding-top:30px;
+        justify-content: center;
+        align-items: center;
+        gap:25px;
+      }
+  
+      p {
+
+        font-size: 16px;
+      }
+  
+      @media (max-width: 768px) {
+        img {
+          width: 95%;
+        }
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+.footer{
+  padding:12px;
+  border-radius:8px;
+  background: #D7EBFF36;
+  margin-top:14px;
+
+  p{
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 36px;
+  }
+  .text{
+    p{
+      font-weight: normal;
+      font-size: 18px;
+      line-height: normal;
+    }
+  }
+  .SavorPlus{
+    display:flex;
+    align-items:center;
+    padding-top:8px;
+    justify-content:right;
+
+    button{
+      padding:8px;
+      border:1px solid #DA344D;
+      cursor:pointer;
+      border-radius:8px;
+      font-size:17px;
+      text-align:center;
+    }
+  }
+
+}
     @media (max-width: 1210px) {
       flex: 2;
     }
@@ -197,31 +318,5 @@ const StyledHopitalProche = styled.div`
       @media (max-width: 768px) {
         font-size: 28px;
       }
-    }
-
-    .body {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding-bottom: 18px;
-      img {
-        width: 60%;
-      }
-
-      p {
-        font-weight: 600;
-        font-size: 16px;
-        line-height: 60px;
-      }
-
-      @media (max-width: 768px) {
-        img {
-          width: 95%;
-        }
-        align-items: center;
-        justify-content: center;
-      }
-    }
-  }
+    } 
 `;
