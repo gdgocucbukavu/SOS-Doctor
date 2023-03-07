@@ -18,7 +18,7 @@ export default function CurMedicament() {
         <div className="Container">
           <div className="Head">
             <h2>Articles Recents</h2>
-            <p>Retrouvez les articles sur la santé ici :</p>
+            <p>Retrouvez les articles sur la santé icii :</p>
           </div>
           <div className="ArticlesContainer">
             {Articles.map((Article) => (
