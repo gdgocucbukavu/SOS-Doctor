@@ -99,7 +99,7 @@ function App() {
         <>
           <Navbar />
           <ScrollToTop />
-          <ToastContainer />
+          <ToastContainer draggable theme="light" position="bottom-left" />
           <Routes>
             <Route path="/" element={<Accueil />} />
             <Route path="/Connexion" element={<Connexion />} />

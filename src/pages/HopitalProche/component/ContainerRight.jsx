@@ -1,44 +1,43 @@
-import React from 'react'
+import React from "react";
 import styled from "styled-components";
 import { FaSearch, FaMapMarked } from "react-icons/fa";
 import Button from "./Button";
 import { useNavigate } from "react-router";
 export default function Right() {
-    const navigation = useNavigate();
-    const [handleShow, sethandleShow] = React.useState(true);
+  const navigation = useNavigate();
+  const [handleShow, sethandleShow] = React.useState(true);
 
-    const handleRoute = (link) => {
-        if (link === "proche") {
-          sethandleShow(false);
-        }
-        navigation(link);
-      };
+  const handleRoute = (link) => {
+    if (link === "proche") {
+      sethandleShow(false);
+    }
+    navigation(link);
+  };
   return (
     <ContainerRight>
-          <h2>Hopital Proche</h2>
-          <p>
-            7 Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-            Doloremque veniam, necessitatibus, assumenda dicta corrupti omnis ad
-            beatae autem debitis maxime suscipit, dolore quis illum quidem.
-            Illum dolor harum enim voluptate.
-          </p>
-          <div className="ServiceContainer">
-            <Button
-              title="Maps"
-              detail="Idéal Pour un endroit inconnu"
-              icon={<FaMapMarked />}
-              color="#39c3f699"
-              action={() => handleRoute("map")}
-            />
-            <Button
-              title="Chercher"
-              detail="Idéal Pour un endroit inconnu"
-              icon={<FaSearch />}
-              action={() => handleRoute("proche")}
-            />
-          </div>
+      <h2>Hopital Proche</h2>
+      <p>
+        Retrouvez ici, les hôpitaux les plus proches selon votre position
+        actuelle en utilisant l'option map. Vous pouvez aussi utiliser le bouton
+        chercher si l'endroit vous est connu.
+      </p>
+      <div className="ServiceContainer">
+        <Button
+          title="Maps"
+          detail="Idéal Pour un endroit inconnu"
+          icon={<FaMapMarked />}
+          color="#39c3f699"
+          action={() => handleRoute("map")}
+        />
+        <Button
+          title="Chercher"
+          detail="Idéal Pour un hopital déjà connu"
+          icon={<FaSearch />}
+          action={() => handleRoute("proche")}
+        />
+      </div>
     </ContainerRight>
-  )
+  );
 }
 const ContainerRight = styled.div`
     display: flex;
@@ -90,4 +89,4 @@ const ContainerRight = styled.div`
     }
   }
 
-`
+`;

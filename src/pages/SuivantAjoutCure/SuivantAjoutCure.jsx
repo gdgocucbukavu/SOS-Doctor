@@ -8,14 +8,27 @@ import Illustration1 from "./Assets/Illustra.svg";
 import { apilink } from "../../config/api.js";
 import Http from "../../config/http.js";
 
-export default function AjoutCureSuivant({ show, setShow }) {
+export default function AjoutCureSuivant({
+  show,
+  setShow,
+  handleChange,
+  handleChangeTime,
+  data,
+}) {
   const heure = [
     { value: "1", label: "08h" },
     { value: "2", label: "deux semaine" },
   ];
   const medicament = [
-    { value: "1", label: "ibiprofene" },
-    { value: "2", label: "docteur maison" },
+    { value: "1", label: "08h" },
+    { value: "2", label: "08h30" },
+    { value: "3", label: "06h00" },
+    { value: "4", label: "06h30" },
+    { value: "5", label: "07h00" },
+    { value: "6", label: "07h30" },
+    { value: "7", label: "09h00" },
+    { value: "8", label: "09h30" },
+    { value: "9", label: "10h30" },
   ];
   useEffect(() => {
     window.scrollTo({
@@ -38,7 +51,7 @@ export default function AjoutCureSuivant({ show, setShow }) {
             <img src={Illustration1} alt="" />
           </div>
         </div>
-        <form action="">
+        <div>
           <div className="testInfos">
             <p>4. Sélectionner les heures de prise de médicaments:</p>
             <Select
@@ -47,7 +60,8 @@ export default function AjoutCureSuivant({ show, setShow }) {
               defaultValue="Masculin"
               isMulti
               isClearable={true}
-              name="sexe"
+              name="heures"
+              onChange={(e) => handleChange(e, "heures")}
               options={medicament}
               styles={{
                 control: (state) => ({
@@ -65,22 +79,16 @@ export default function AjoutCureSuivant({ show, setShow }) {
           </div>
           <div className="testInfos">
             <p>5.Commet :</p>
-            <Select
-              className="basic-single"
-              classNamePrefix="select"
-              defaultValue="Masculin"
-              isClearable={true}
-              name="sexe"
-              options={heure}
-              styles={{
-                control: (state) => ({
-                  width: "100%",
-                  border: "1px solid #39C3F6",
-                  borderRadius: "5px",
-                  minHeight: "50px",
-                  display: "flex",
-                  borderColor: state.isFocused ? "grey" : "#39C3F6",
-                }),
+            <input
+              type="date"
+              name="time"
+              onChange={(e) => handleChangeTime(e)}
+              style={{
+                width: "100%",
+                border: "1px solid #39C3F6",
+                borderRadius: "5px",
+                minHeight: "50px",
+                padding: 10,
               }}
             />
           </div>
@@ -94,7 +102,7 @@ export default function AjoutCureSuivant({ show, setShow }) {
             />
             <Button title={"Ajouter"} bg={"#AE376D"} color={"white"} />
           </div>
-        </form>
+        </div>
         <p>
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum
           fugiat ea
@@ -197,6 +205,12 @@ const StyledQuickTest = styled.div`
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+
+      input {
+        &:focus {
+          outline: none;
+        }
+      }
 
       p {
         font-style: normal;

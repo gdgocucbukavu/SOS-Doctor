@@ -41,8 +41,8 @@ export default function Sexualite() {
           <div className="header">
             <h2>Sexualité</h2>
             <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Soluta
-              tenetur voluptatum facere reiciendis ex perspiciatis .
+              Besoin d'apprendre beaucoup plus sur la santé sexuelle ? Retrouvez
+              tous les articles conçus par les experts ici
             </p>
           </div>
 

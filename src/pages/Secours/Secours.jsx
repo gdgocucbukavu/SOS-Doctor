@@ -23,8 +23,8 @@ export default function Secours() {
           <div className="header">
             <h2>Sécourisme</h2>
             <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Soluta
-              tenetur voluptatum facere reiciendis ex perspiciatis .
+              Retrouvez les techniques de secourisme et les gestes qui sauvent
+              dans cette partie
             </p>
           </div>
 

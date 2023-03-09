@@ -1,6 +1,6 @@
-import React,{useState,useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import {Medicaments} from "./data/Cure"
+import { Medicaments } from "./data/Cure";
 import AucuneCure from "./component/AucuneCure";
 import CardMedicament from "./component/CardMedicament";
 import { Articles } from "./data/Article";
@@ -8,19 +8,19 @@ import { FaPlus } from "react-icons/fa";
 import CardArticle from "./component/CardArticle";
 import { useNavigate } from "react-router-dom";
 export default function CurMedicament() {
-const [DataCure,setDataCure]=useState(Medicaments)
-const [show,setShow]=useState(false)
-const Navigate = useNavigate();
+  const [DataCure, setDataCure] = useState(Medicaments);
+  const [show, setShow] = useState(false);
+  const [data, setData] = useState({});
+  const Navigate = useNavigate();
 
-const AjouterCure = () => {
-  Navigate("/AjouterCure");
-};
-useEffect(() => {
-  if (DataCure.length >=1){
-    setShow(true)
-  }
-
-})
+  const AjouterCure = () => {
+    Navigate("/AjouterCure");
+  };
+  useEffect(() => {
+    if (DataCure.length >= 1) {
+      setShow(true);
+    }
+  });
   return (
     <StyledHopitalProche>
       <div className="ContainerLeft">
@@ -36,68 +36,50 @@ useEffect(() => {
           </div>
         </div>
       </div>
-      {
-          show?
-      <div className="ContainerRight">
-      <div className="head">
-      <h2>Cure médicament</h2>
-      <button className="ButtonAjout " onClick={AjouterCure}>
-        <FaPlus className="icone"/>
-        <p>Ajouter</p>
-      </button>
-   </div>
-
-   <p>Lorem ipsum dolor sit amet 
-    consectetur adipisicing elit. 
-    Velit nobis tenetur consequuntur 
-    accusantium rerum sunt molestias, 
-    quo aperiam! Amet doloribus tempore 
-    molestiae ad doloremque id consequuntur 
-    unde adipisci quaerat vero.
-  </p>
-
-  <div className="body">
-    <div className="ContainerCure">
-      {
-        Medicaments.map((medicament) => (
-          <CardMedicament data={medicament}/>
-          )
-        )
-      }
-
-    </div>
-
-    <div className="footer">
-      <div className="Card">
-        <p>paludisme</p>
-        <div className="text">
-          <p>
-          Le paludisme est une maladie 
-          humaine potentiellement mortelle 
-          causée par des parasites que transmettent 
-          les piqûres de moustiques anophèles femelles 
-          infectées.
-          </p>
-        </div>
-        <div className="SavorPlus">
-          <button>
-            Apprendre plus
-          </button>
-        </div>
-       
-      </div>
-    </div>
-    
-        
-  </div>
-        
-      </div>
-          :
-          <div className="ContainerRight">
-                     <AucuneCure/>
+      {show ? (
+        <div className="ContainerRight">
+          <div className="head">
+            <h2>Cure médicament</h2>
+            <button className="ButtonAjout " onClick={AjouterCure}>
+              <FaPlus className="icone" />
+              <p>Ajouter</p>
+            </button>
           </div>
- 
-        }
+
+          <p>
+            Veuillez me fournir les informations necéssaires pour mieux pour
+            vous rappeler de vos cures
+          </p>
+
+          <div className="body">
+            <div className="ContainerCure">
+              {Medicaments.map((medicament) => (
+                <CardMedicament data={medicament} />
+              ))}
+            </div>
+
+            <div className="footer">
+              <div className="Card">
+                <p>paludisme</p>
+                <div className="text">
+                  <p>
+                    Le paludisme est une maladie humaine potentiellement
+                    mortelle causée par des parasites que transmettent les
+                    piqûres de moustiques anophèles femelles infectées.
+                  </p>
+                </div>
+                <div className="SavorPlus">
+                  <button>Apprendre plus</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      ) : (
+        <div className="ContainerRight">
+          <AucuneCure />
+        </div>
+      )}
     </StyledHopitalProche>
   );
 }
@@ -246,20 +228,19 @@ const StyledHopitalProche = styled.div`
         width: 60%;
       }
 
-      .ContainerCure{
-        display:flex;
-        flex-wrap:wrap;
-        padding-top:30px;
+      .ContainerCure {
+        display: flex;
+        flex-wrap: wrap;
+        padding-top: 30px;
         justify-content: center;
         align-items: center;
-        gap:25px;
+        gap: 25px;
       }
-  
-      p {
 
+      p {
         font-size: 16px;
       }
-  
+
       @media (max-width: 768px) {
         img {
           width: 95%;
@@ -269,54 +250,53 @@ const StyledHopitalProche = styled.div`
       }
     }
   }
-.footer{
-  padding:12px;
-  border-radius:8px;
-  background: #D7EBFF36;
-  margin-top:14px;
+  .footer {
+    padding: 12px;
+    border-radius: 8px;
+    background: #d7ebff36;
+    margin-top: 14px;
 
-  p{
-    font-weight: 700;
-    font-size: 24px;
-    line-height: 36px;
-  }
-  .text{
-    p{
-      font-weight: normal;
-      font-size: 18px;
-      line-height: normal;
-    }
-  }
-  .SavorPlus{
-    display:flex;
-    align-items:center;
-    padding-top:8px;
-    justify-content:right;
-
-    button{
-      padding:8px;
-      border:1px solid #DA344D;
-      cursor:pointer;
-      border-radius:8px;
-      font-size:17px;
-      text-align:center;
-    }
-  }
-
-}
-    @media (max-width: 1210px) {
-      flex: 2;
-    }
-    h2 {
-      font-style: normal;
+    p {
       font-weight: 700;
-      font-size: 38px;
-      line-height: 60px;
-      color: #39c3f6;
-      padding: 0;
-
-      @media (max-width: 768px) {
-        font-size: 28px;
+      font-size: 24px;
+      line-height: 36px;
+    }
+    .text {
+      p {
+        font-weight: normal;
+        font-size: 18px;
+        line-height: normal;
       }
-    } 
+    }
+    .SavorPlus {
+      display: flex;
+      align-items: center;
+      padding-top: 8px;
+      justify-content: right;
+
+      button {
+        padding: 8px;
+        border: 1px solid #da344d;
+        cursor: pointer;
+        border-radius: 8px;
+        font-size: 17px;
+        text-align: center;
+      }
+    }
+  }
+  @media (max-width: 1210px) {
+    flex: 2;
+  }
+  h2 {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 38px;
+    line-height: 60px;
+    color: #39c3f6;
+    padding: 0;
+
+    @media (max-width: 768px) {
+      font-size: 28px;
+    }
+  }
 `;

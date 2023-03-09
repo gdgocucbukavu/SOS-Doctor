@@ -4,6 +4,7 @@ import styled from "styled-components";
 import logo from "../assets/logo_clean.png";
 
 import "hamburgers/dist/hamburgers.css";
+import { AiOutlineBell } from "react-icons/ai";
 
 export default function Navbar() {
   const [open, setOpen] = React.useState(false);
@@ -45,23 +46,29 @@ export default function Navbar() {
               </span>
             </button>
           )}
-
-          {user && (
-            <div className="profile">
-              <img src={user.photoURL} alt="user" onClick={handledown} />
-              <p onClick={handledown}>
-                {user && user.displayName.split(" ")[0]}
-              </p>
-              <div
-                className={show ? "dropdown active" : "dropdown"}
-                onMouseLeave={() => setShow(!show)}
-              >
-                <Link to="/Profile">Mon profil</Link>
-                <Link to="/CureMedicament">Ma cure</Link>
-                <Link to="/Deconnexion">Deconnexion</Link>
+          <div className="options">
+            {user && (
+              <div className="notification">
+                <AiOutlineBell />
               </div>
-            </div>
-          )}
+            )}
+            {user && (
+              <div className="profile">
+                <img src={user.photoURL} alt="user" onClick={handledown} />
+                <p onClick={handledown}>
+                  {user && user.displayName.split(" ")[0]}
+                </p>
+                <div
+                  className={show ? "dropdown active" : "dropdown"}
+                  onMouseLeave={() => setShow(!show)}
+                >
+                  <Link to="/Profile">Mon profil</Link>
+                  <Link to="/CureMedicament">Ma cure</Link>
+                  <Link to="/Deconnexion">Deconnexion</Link>
+                </div>
+              </div>
+            )}
+          </div>
         </div>
         <div
           className={open ? "left_menu active" : "left_menu"}
@@ -82,6 +89,7 @@ export default function Navbar() {
             {user && (
               <div className="profile">
                 <img src={user.photoURL} alt="user" onClick={handledown} />
+
                 <p onClick={handledown}>
                   {user && user.displayName.split(" ")[0]}
                 </p>
@@ -93,6 +101,12 @@ export default function Navbar() {
                   <Link to="/CureMedicament">Ma cure</Link>
                   <Link to="/Deconnexion">Deconnexion</Link>
                 </div>
+              </div>
+            )}
+
+            {user && (
+              <div className="notification">
+                <AiOutlineBell />
               </div>
             )}
             {!user && <Link to="/Connexion">Connexion</Link>}
@@ -109,6 +123,7 @@ const StyledNavbar = styled.nav`
   align-items: center;
   height: 60px;
   border: 1px solid rgba(159, 159, 159, 0.2);
+
   z-index: 2000;
 
   .container {
@@ -119,6 +134,7 @@ const StyledNavbar = styled.nav`
     height: 60px;
     justify-content: space-between;
     background-color: ${(props) => (props.scro ? "#fff" : "#fff8")};
+    box-shadow: rgba(149, 157, 165, 0.1) 0px 8px 8px;
   }
 
   @media (max-width: 768px) {
@@ -143,6 +159,15 @@ const StyledNavbar = styled.nav`
     margin-right: 10px;
     cursor: pointer;
 
+    .options {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .notification {
+      margin-right: 10px;
+      cursor: pointer;
+    }
     .profile {
       display: flex;
       align-items: center;
@@ -346,6 +371,11 @@ const StyledNavbar = styled.nav`
         .dropdown.active {
           display: flex;
         }
+      }
+
+      .notification {
+        margin-right: 10px;
+        cursor: pointer;
       }
     }
   }
