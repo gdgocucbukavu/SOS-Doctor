@@ -27,6 +27,7 @@ import "react-toastify/dist/ReactToastify.css";
 import ProtectedBefore from "./components/PotectedBefore";
 import Deconnexion from "./components/Deconnexion";
 import { requestPermission } from "./fonction";
+import Apropos from "./pages/Apropos/Apropos";
 
 function App() {
   const [isLoggedIn, setIsLogged] = useState(false);
@@ -127,6 +128,7 @@ function App() {
             <Route path="/Sexualite" element={<Sexualite />} />
             <Route path="/Maternite" element={<Maternite />} />
             <Route path="/divers" element={<Divers />} />
+            <Route path="/apropos" element={<Apropos />} />
             <Route path="/search/:parametre" element={<RechercheGlobal />} />
           </Routes>
           {showBtn && <InstallPWA setCLose={setShow} />}
