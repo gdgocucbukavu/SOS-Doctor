@@ -79,7 +79,7 @@ export default function Navbar() {
               <Link to="/">Accueil</Link>
             </li>
             <li>
-              <Link to="/apropos">A propos</Link>
+              <Link to="/">A propos</Link>
             </li>
             <li>
               <Link to="/">Contact</Link>
@@ -124,7 +124,7 @@ const StyledNavbar = styled.nav`
   height: 60px;
   border: 1px solid rgba(159, 159, 159, 0.2);
 
-  z-index: 3000;
+  z-index: 2000;
 
   .container {
     display: flex;
