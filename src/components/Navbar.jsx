@@ -79,7 +79,7 @@ export default function Navbar() {
               <Link to="/">Accueil</Link>
             </li>
             <li>
-              <Link to="/">A propos</Link>
+              <Link to="/apropos">A propos</Link>
             </li>
             <li>
               <Link to="/">Contact</Link>
